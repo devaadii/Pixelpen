@@ -1,0 +1,86 @@
+.testimonials-container {
+  position: relative;
+  overflow: hidden;
+  padding: 2rem;
+  height: 100vh;
+  background: radial-gradient(ellipse 60% 100% at center, #001480, transparent 70%),
+  #000;
+  color: #ccc;
+}
+
+.testimonials-columns {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+  height: 100%;
+}
+
+.scroll-loop {
+  height: 100%;
+  overflow: hidden;
+}
+
+.column-inner {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.testimonial-column {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.testimonial-card {
+  background: transparent;
+  border: 1px solid #ccc;
+  border-radius: 1rem;
+  padding: 1.5rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  position: relative;
+}
+
+.testimonial-text {
+  font-style: italic;
+  margin-bottom: 1rem;
+}
+
+.testimonial-footer {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.avatar {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.name {
+  font-weight: bold;
+  margin: 0;
+}
+
+.role {
+  font-size: 0.9rem;
+  color: gray;
+  margin: 0;
+}
+
+.stars {
+  color: gold;
+  font-size: 1rem;
+  margin-top: 0.25rem;
+}
+
+.quote-icon {
+  position: absolute;
+  bottom: 1rem;
+  right: 1rem;
+  color: #ccc;
+  font-size: 1.5rem;
+}
+

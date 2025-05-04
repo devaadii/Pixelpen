@@ -1,0 +1,116 @@
+.video-showcase {
+  background: linear-gradient(to bottom, #000, #001f3f);
+  min-height: 100vh;
+  padding: 60px 0x;
+  position: relative;
+  color: white;
+  overflow: hidden;
+  font-family: sans-serif;
+
+}
+
+.grid-bg {
+  position: absolute;
+  inset: 0;
+  background-image: radial-gradient(#222 1px, transparent 1px);
+  background-size: 24px 24px;
+  opacity: 0.25;
+  z-index: 0;
+}
+
+.header {
+  text-align: center;
+  z-index: 1;
+  position: relative;
+  margin-bottom: 40px;
+}
+
+.header h2 {
+  font-size: 42px;
+  font-style: italic;
+  font-weight: 300;
+}
+
+.header p {
+  font-size: 18px;
+  color: #ccc;
+}
+
+/* Carousel Wrapper */
+.carousel-wrapper {
+  position: relative;
+  height: 100%;
+  overflow: hidden;
+  z-index: 1;
+
+}
+
+.carousel-track {
+  display: flex;
+  gap: 30px;
+  animation: scroll-left 40s linear infinite;
+  width: max-content;
+}
+
+.video-card {
+  flex: 0 0 auto;
+  width: 200px;
+  height: 40vh;
+  aspect-ratio: 9 / 16;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 0 15px rgba(255, 255, 255, 0.1);
+  background-color: #111;
+  transition: transform 0.3s ease;
+}
+
+.video-card:hover {
+  transform: scale(1.05);
+}
+
+.video-card.wide {
+  width: 400px;
+  aspect-ratio: 16 / 9;
+}
+
+.video-card.small {
+  height: 40vh;
+  width: 160px;
+  margin-top: 5vh;
+}
+
+.video-card iframe {
+  width: 100%;
+  height: 100%;
+  border: none;
+}
+
+/* Infinite scroll animation */
+@keyframes scroll-left {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+/* Fading edges */
+.fade {
+  position: absolute;
+  top: 0;
+  width: 80px;
+  height: 100%;
+  pointer-events: none;
+  z-index: 2;
+}
+
+.fade-left {
+  left: 0;
+  background: linear-gradient(to right, #000, transparent);
+}
+
+.fade-right {
+  right: 0;
+  background: linear-gradient(to left, #000, transparent);
+}

@@ -1,0 +1,111 @@
+/* Reset styles */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
+
+
+
+@font-face {
+  font-family: 'Neue';
+  src: url('../fonts/NeueMetana-Bold.otf') format('truetype');
+}
+@font-face {
+  font-family: 'Gilroy';
+  src: url('../fonts/Gilroy-Medium.ttf') format('truetype');
+}
+
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background: transparent;
+  z-index: 100;
+  padding: 4vh 10vw;
+  font-family: "Inter", sans-serif;
+}
+
+.navbar-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  color: white;
+  font-family: 'Neue', sans-serif;
+  font-size: 24px;
+  font-weight: bold;
+  font-weight: 700;
+}
+
+.menu-icon {
+  font-size: 28px;
+  color: white;
+  cursor: pointer;
+  display: none; /* Hidden by default */
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 20px;
+  border-radius: 20em;
+  background: linear-gradient(180deg, rgba(5, 6, 8, 0.12) 0%, rgba(0, 92, 255, 0.12) 100%);
+  border: 1px solid rgba(255, 255, 255, 0.24);
+  padding: 2vh 2vw;
+  backdrop-filter: blur(300px);
+  overflow: hidden; /* Ensures padding doesn't break the border-radius */
+}
+
+.nav-links li a {
+  text-decoration: none;
+  color: rgba(255, 255, 255, 0.6);
+  font-size: 18px;
+  transition: 0.3s;
+}
+
+.nav-links li a:hover {
+  color: #fff;
+}
+
+.book-call {
+  padding: 2vh 1vw;
+  border-radius: 10px; /* Adjust as needed */
+  font-family: "Gilroy", sans-serif;
+  font-weight: 600;
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+  .menu-icon {
+    display: block;
+  }
+
+  .nav-links {
+    position: absolute;
+    top: 60px;
+    right: 0;
+    background: rgba(0, 0, 0, 0.9);
+    width: 100%;
+    flex-direction: column;
+    text-align: center;
+    padding: 20px 0;
+    display: none;
+  }
+
+  .nav-links.open {
+    display: flex;
+  }
+}
+
+.nav-links a.active {
+  color: #005cff;
+  font-weight: 600;
+  border-bottom: 2px solid #005cff;
+}

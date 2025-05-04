@@ -1,0 +1,77 @@
+.packages-wrapper {
+    padding: 80px 20px;
+    text-align: center;
+    background: 
+    radial-gradient(circle at left center, rgba(0, 92, 255, 0.2), transparent 60%),
+    radial-gradient(circle at right center, rgba(0, 92, 255, 0.2), transparent 60%);
+    /* fallback solid */
+
+    color: white;
+    font-family: 'Georgia', serif;
+  }
+  
+  .heading {
+    font-size: 36px;
+    margin-bottom: 10px;
+  }
+  
+  .subheading {
+    font-size: 18px;
+    opacity: 0.6;
+    margin-bottom: 80px;
+  }
+  
+  .packages-grid {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    flex-wrap: wrap;
+  }
+  
+  .package-card {
+    border-radius: 20px;
+    padding: 30px 25px;
+    width: 300px;
+    background: radial-gradient(circle at top left, rgba(255, 255, 255, 0.05), rgba(0, 0, 0, 0.2)), #0a0a0a;
+    background-blend-mode: normal;
+    text-align: left;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+    z-index: 2;
+    isolation: isolate; /* optional safeguard */
+  }
+  .package-title {
+    font-size: 22px;
+    margin-bottom: 20px;
+    font-family: 'Georgia', serif;
+    color: #fff;
+  }
+  
+  .package-features {
+    list-style: none;
+    padding: 0;
+    margin-bottom: 20px;
+    color: rgba(255, 255, 255, 0.9);
+  }
+  
+  .package-features li {
+    margin-bottom: 12px;
+    font-size: 15px;
+    line-height: 1.5;
+  }
+  
+  .book-btn {
+    background: white;
+    color: black;
+    padding: 12px 18px;
+    font-size: 15px;
+    font-weight: bold;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background 0.3s;
+  }
+  
+  .book-btn:hover {
+    background: #ddd;
+  }

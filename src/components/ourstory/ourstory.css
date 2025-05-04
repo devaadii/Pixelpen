@@ -1,0 +1,128 @@
+.axis-container {
+  position: relative;
+  width: 400px;
+  height: 400px;
+  margin: 40px;
+  background: transparent;
+}
+
+/* Axes */
+.x-axis {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  height: 2px;
+  width: 100%;
+  background: linear-gradient(to right, transparent, white);
+}
+
+.y-axis {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 2px;
+  height: 100%;
+  background: linear-gradient(to top, transparent, white);
+}
+
+/* Arrows */
+.arrow {
+  position: absolute;
+  width: 0;
+  height: 0;
+}
+
+.arrow-right {
+  right: 0;
+  top: -5px;
+  border-top: 5px solid transparent;
+  border-bottom: 5px solid transparent;
+  border-left: 10px solid white;
+}
+
+.arrow-up {
+  left: -4px;
+  top: 0;
+  border-left: 5px solid transparent;
+  border-right: 5px solid transparent;
+  border-bottom: 10px solid white;
+}
+
+/* Bars */
+.bar {
+  position: absolute;
+  bottom: 0;
+  width: 45px;
+  height: 0;
+  background: linear-gradient(to top, transparent, rgba(0, 92, 255, 1));
+  transition: height 1.5s ease-in-out;
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+/* Position + target height on animate */
+.bar1.animate {  height: 270px; left: 320px;}
+.bar2.animate {height: 210px; left: 230px;  }
+.bar3.animate { height: 150px; left: 140px;}
+.bar4.animate { height: 90px; left: 50px; }
+
+/* Label inside bars */
+.bar-label {
+
+  width: 100%;
+  height: 10%;
+  background-color:  rgba(0, 92, 255, 1);
+  color: white;
+  font-size: 12px;
+  font-weight: bold;
+  border-radius: 6px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.horizontal-line-container {
+  position: absolute;
+  left: 0;
+  display: flex;
+  align-items: center;
+  transition: top 1.5s ease-in-out;
+}
+
+.horizontal-line {
+  position: absolute;
+  height: 1px;
+  border-top: 1px dotted white;
+  transition: width 1.5s ease-in-out;
+}
+
+.right-label {
+  margin-left: 8px;
+
+  color: rgba(0, 92, 255, 1);
+  font-size: 12px;
+  padding: 4px 8px;
+  border-radius: 6px;
+  white-space: nowrap;
+  position: relative;
+  left: 400px; /* Right-end fixed position */
+}
+
+.label-with-subtext {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 4px;
+}
+
+.label-subtext {
+  font-size: 11px;
+  color: grey;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  margin-top: 4px;
+}
