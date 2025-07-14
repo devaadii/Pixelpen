@@ -10,19 +10,25 @@ const PackagesSection = () => {
       <div className="packages-grid">
         {/* Package 1 */}
         <div className="package-card">
+          <div className="ribbon">Popular</div>
           <h3 className="package-title">PixelPen Pro</h3>
           <ul className="package-features">
             <li>
-              ➜ High-Quality Video Editing for <b>Reels, Long-form Content & Podcasts</b>
+              <span style={{ display: "inline-flex", gap: "5px", alignItems: "flex-start" }}>
+                <span className="arrow">➜</span>
+                <span style={{ maxWidth: "300px" }}>
+                  High-Quality Video Editing for <b>Reels, Long-form Content & Podcasts</b>
+                </span>
+              </span>
             </li>
             <li>
-              ➜ Fast <b>Turnarounds</b>
+              <span className="arrow">➜</span> Fast <b>Turnarounds</b>
             </li>
             <li>
-              ➜ <b>Flawless</b> Output
+              <span className="arrow">➜</span> <b>Flawless</b> Output
             </li>
           </ul>
-          <button className="book-btn">Book A Call</button>
+          <button className="book-btn">Book a Call</button>
         </div>
 
         {/* Package 2 */}
@@ -30,25 +36,35 @@ const PackagesSection = () => {
           <h3 className="package-title">PixelPen Elite</h3>
           <ul className="package-features">
             <li>
-              ➜ <b>Pro-Level</b> Editing for <b>Reels, Long-form Content & Podcasts</b>
+              <span style={{ display: "inline-flex", gap: "5px", alignItems: "flex-start" }}>
+                <span className="arrow">➜</span>
+                <span style={{ maxWidth: "300px" }}>
+                  <b>Pro-Level</b> Editing for Reels, Long-form Content & Podcasts
+                </span>
+              </span>
             </li>
             <li>
-              ➜ <b>Click-Worthy</b> Thumbnails
+              <span className="arrow">➜</span> <b>Click-Worthy</b> Thumbnails
             </li>
             <li>
-              ➜ Fast <b>Turnarounds</b>
+              <span className="arrow">➜</span> Fast <b>Turnarounds</b>
             </li>
             <li>
-              ➜ <b>Flawless</b> Output
+              <span className="arrow">➜</span> <b>Flawless</b> Output
             </li>
             <li>
-              ➜ <b>Scriptwriting</b> That Converts
+              <span className="arrow">➜</span> <b>Scriptwriting</b> That Converts
             </li>
             <li>
-              ➜ <b>Content Strategy</b> Tailored for Results
+              <span style={{ display: "inline-flex", gap: "5px", alignItems: "flex-start" }}>
+                <span className="arrow">➜</span>
+                <span style={{ maxWidth: "200px" }}>
+                  <b>Content Strategy</b> Tailored for Results
+                </span>
+              </span>
             </li>
           </ul>
-          <button className="book-btn">Book A Call</button>
+          <button className="book-btn">Book a Call</button>
         </div>
       </div>
     </div>

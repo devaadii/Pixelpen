@@ -16,7 +16,10 @@ function Nav() {
           }
         });
       },
-      { threshold: 0.5 } // You can tweak this
+      {
+        threshold: 0.4, // Try reducing this value for better detection
+        rootMargin: "0px 0px -40% 0px" // Helps detect section earlier
+      }
     );
 
     sections.forEach((section) => observer.observe(section));
@@ -27,7 +30,7 @@ function Nav() {
   return (
     <nav className="navbar">
       <div className="navbar-container">
-        <h1 className="logo">Pixel Pen.</h1>
+        <h1 className="logo">PixelPen.</h1>
 
         <div className="menu-icon" onClick={() => setMenuOpen(!menuOpen)}>
           ☰
@@ -36,12 +39,12 @@ function Nav() {
         <ul className={menuOpen ? "nav-links open" : "nav-links"}>
           <li><a href="#home" className={activeLink === "home" ? "active" : ""}>Home</a></li>
           <li><a href="#portfolio" className={activeLink === "portfolio" ? "active" : ""}>Portfolio</a></li>
-          <li><a href="#case-study" className={activeLink === "case-study" ? "active" : ""}>Case Study</a></li>
-          <li><a href="#services" className={activeLink === "services" ? "active" : ""}>Services</a></li>
-          <li><a href="#about" className={activeLink === "about" ? "active" : ""}>About Us</a></li>
+          <li><a href="#case-study" className={activeLink === "case-study" ? "active" : ""}>Services</a></li>
+          <li><a href="#services" className={activeLink === "services" ? "active" : ""}>Testimonials</a></li>
+          <li><a href="#about" className={activeLink === "about" ? "active" : ""}>FAQ's</a></li>
         </ul>
 
-        <li><button className='book-call'>Book A Call</button></li>
+        <li><button className='book-call'>Book a Call</button></li>
       </div>
     </nav>
   );

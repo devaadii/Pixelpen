@@ -1,6 +1,7 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
+
 .book-banner {
   position: relative;
-  background-image: url('/your-image.jpg'); /* <- replace with actual path */
   background-size: cover;
   background-position: center;
   border-radius: 20px;
@@ -13,6 +14,8 @@
   margin-top: 60px;
   margin-bottom: 60px;
   box-shadow: 0 0 20px rgba(0,0,0,0.4);
+  font-family: "Inter",sans-serif;
+  border: 1px solid rgba(255, 255, 255, 0.2);
 }
 
 .book-banner-content {
@@ -24,8 +27,7 @@
   content: "";
   position: absolute;
   inset: 0;
-  background: linear-gradient(to top, rgba(0, 0, 0, 0.6), transparent 60%);
-  z-index: 1;
+
 }
 
 .brand {
@@ -47,8 +49,9 @@
   font-size: 16px;
   font-weight: 600;
   border: none;
-  padding: 12px 30px;
+  padding: 12px 80px;
   border-radius: 8px;
+  font-family: "Inter",sans-serif;
   cursor: pointer;
   transition: background 0.3s;
 }
@@ -74,4 +77,19 @@
 
 .dot.active {
   background: white;
+}
+.book-banner::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(200px at top left, rgba(0, 92, 255, 0.5), rgba(0, 92, 255, 0.1));
+  z-index: 0;
+  pointer-events: none;
+opacity: 0.4;
+
+}
+
+.book-banner-content {
+  position: relative;
+  z-index: 1;
 }

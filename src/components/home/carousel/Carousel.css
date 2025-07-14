@@ -4,13 +4,14 @@
   width: 100%;
   display: flex;
   flex-direction: column;
-  gap: 1vh;
+  gap: 5vh;
   padding: 1vh 0;
   z-index: -1;
+  opacity: 0.5;
 }
 
 .carousel-wrapper {
-  position: relative; /* ← Add this */
+  position: relative; 
   overflow: hidden;
   width: 100%;
   height: 8vh;
@@ -70,8 +71,8 @@
 }
 
 @keyframes scroll-right {
-  0% { transform: translateX(-50%); }
-  100% { transform: translateX(0); }
+  0% { transform: translateX(0); }
+  100% { transform: translateX(50%); }
 }
 .scroll-left {
   animation: scroll-left 40s linear infinite;

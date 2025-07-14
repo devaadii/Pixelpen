@@ -1,9 +1,10 @@
 import React from "react";
 import "./VideoShowcase.css";
+import img from "../../assets/Vector 5.png"
 
 const videos = [
   "https://www.youtube.com/embed/dQw4w9WgXcQ",
-  "https://www.youtube.com/embed/3fumBcKC6RE",
+  "https://www.instagram.com/reel/DJUBYPeJkLt/?igsh=ZTRndnpldHFscHU=",
   "https://www.youtube.com/embed/tgbNymZ7vqY",
   "https://www.youtube.com/embed/ysz5S6PUM-U",
   "https://www.youtube.com/embed/kJQP7kiw5Fk",
@@ -27,7 +28,7 @@ const VideoShowcase = () => {
     <div className="video-showcase">
       <div className="grid-bg"></div>
       <div className="header">
-        <h2>Our Edits, Your Story</h2>
+        <h2>Our Edits, Your Story</h2><img className="img" src={img} />
         <p>Results That Speak for Themselves.</p>
       </div>
 

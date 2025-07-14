@@ -1,9 +1,10 @@
 body {
-  background: rgba(5, 6, 8, 0.9) url('./assets/9481dd68e28604e053133d0c6be29639.jpeg') center/cover no-repeat;
+  background: rgba(5, 6, 8, 1) url('./assets/9481dd68e28604e053133d0c6be29639.jpeg') center/cover no-repeat;
   position: relative;
   margin: 0%;
-  background-blend-mode: multiply; /* Ensures the color blends with the background image */
+  background-blend-mode: multiply; 
   padding: 0%;
+  cursor: url('./assets/Vector.png'), auto;
 }
 
 /* Grid Overlay */
@@ -15,7 +16,7 @@ body::before {
   width: 100%;
   height: 100%;
   background: url('./assets/d2c5e68411f995451cc7a4c0cffee31a.png') center/100% no-repeat;
-  opacity: 0.2; /* Adjust transparency */
+  opacity: 0.1; /* Adjust transparency */
   pointer-events: none; /* Ensures clicks pass through */
   z-index: 1;
 }
@@ -27,11 +28,12 @@ body::after {
   top: 0;
   left: 0;
   width: 100%;
-  height: 30vh; 
+  height: 35vh; 
   background: radial-gradient(ellipse at top center, rgba(0, 92, 255, 1), transparent 70%);
   pointer-events: none;
   z-index: 2;
 }
 html {
   scroll-behavior: smooth;
+
 }

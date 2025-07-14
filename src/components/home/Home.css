@@ -1,4 +1,11 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
+@font-face {
+  font-family: 'Awesome';
+  src: url('/src/fonts/Awesome\ Serif\ Italic\ VAR-VF.ttf');
+  font-weight: normal;
+  font-style: normal;
+}
+
 
 .home {
   min-height: 100vh; /* use min-height instead of height */
@@ -8,12 +15,12 @@
   flex-direction: column;
   justify-content: space-between; /* space between top content and image */
   align-items: center;
-
-  color: rgba(255, 255, 255, 0.9);
+  color: rgba(255, 255, 255, 0.6);
   text-align: center;
   font-family: 'Inter', sans-serif;
   padding: 2rem;
   box-sizing: border-box;
+
 }
 
 .hero-content {
@@ -28,12 +35,17 @@
 
 .hero-title {
   font-size: clamp(2rem, 5vw, 4rem);
-  font-weight: 300;
+  font-weight: 200;
   line-height: 1.2;
+  z-index: 3;
+  letter-spacing: -1px;
 }
 
+
+
 .hero-title i {
-  font-weight: 500;
+  font-family: "Awesome",serif ;
+  font-weight: 300;
   font-style: italic;
   color: #ffffff;
 }
@@ -44,6 +56,10 @@
   line-height: 1.6;
   color: rgba(255, 255, 255, 0.7);
 }
+.hero-subtitle i{
+ color: #ffffff;
+ font-weight: 400;
+}
 
 .hero-buttons {
   display: flex;
@@ -51,6 +67,7 @@
   gap: 1.5rem;
   flex-wrap: wrap;
 }
+
 
 .primary-btn,
 .outline-btn {
@@ -66,6 +83,7 @@
   background-color: #ffffff;
   color: #000;
   border: none;
+  width: 13vw;
 }
 
 .primary-btn:hover {
@@ -76,6 +94,7 @@
   background: transparent;
   color: white;
   border: 1px solid rgba(255, 255, 255, 0.6);
+  width: 13vw;
 }
 
 .outline-btn:hover {
@@ -93,9 +112,15 @@
   position: absolute;
   bottom: 0;
   left: 50%;
-  transform: translateX(-50%);
+  transform: translateX(-50%) translateY(20%);
   max-width: 500px;
   width: 100%;
   z-index: 2; /* make sure it's above carousel */
-  pointer-events: none; /* optional: so it doesn’t block interactions */
+  pointer-events: none; 
+  -webkit-mask-image: linear-gradient(to bottom, black 70%, transparent 100%);
+  mask-image: linear-gradient(to bottom, black 70%, transparent 100%);
+}
+#atten{
+  font-family: "Awesome",serif ;
+  color: white;
 }

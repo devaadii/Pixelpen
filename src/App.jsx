@@ -10,34 +10,40 @@ import BookCallBanner from './components/bookcall/BookCallBanner'
 import Testimonials from './components/testenomials/Testimonials'
 import PackagesSection from './components/package/PackagesSection'
 import VideoShowcase from './components/videoShowcase/VideoShowcase'
+import FAQSection from './components/FAQ/FAQSection'
 
 
 function App() {
-  const [count, setCount] = useState(0)
-
   return (
-    <>
-<div className="layout">
-
-  <Nav />
-
-  <main className="page-content">
-  <section id="home">
- <Home />
- </section>
- <section id="our-story">
-<OurStory />
- </section>
-
-  </main>
- <VideoShowcase />
-  <PackagesSection />
-  <Testimonials />
-  <BookCallBanner />
-  <Footer />
-</div>
-    </>
-  )
+    <div className="layout">
+      <Nav />
+      <main className="page-content">
+        <section id="home">
+          <Home />
+   
+        </section>
+        <OurStory />
+        <section id="portfolio">
+          <VideoShowcase />
+        </section>
+        <section id="case-study">
+          <PackagesSection />
+        </section>
+        <section id="services">
+          <Testimonials />
+        </section>
+        <section id="about">
+          <FAQSection />
+        </section>
+        <section id="book-call">
+          <BookCallBanner />
+        </section>
+        <section id="about">
+          <Footer />
+        </section>
+      </main>
+    </div>
+  );
 }
 
 export default App

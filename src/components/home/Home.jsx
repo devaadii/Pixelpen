@@ -3,20 +3,31 @@ import './Home.css';
 import Carousel from './carousel/Carousel';
 import image from "../../assets/Group 82.png"
 
+
 function Home() {
+  const phone = "916376665647";
+const message = encodeURIComponent("Hi Pixelpen, I'm interested in your video editing services. Could you please share more details?");
   return (
     <div className="home">
       <div className="hero-content">
         <h2 className="hero-title">
-          Professional Editing <br />
-          <i>That Grabs Attention.</i>
+          Professional Editing <br />That 
+          <span id='atten'> Grabs Attention.</span>
         </h2>
         <p className="hero-subtitle">
-          Looking for <strong>jaw-dropping edits</strong>, thumbnails, and scripts that grab attention and make your audience stop scrolling?
+          Looking for <i>jaw-dropping edits, thumbnails, and scripts</i> that grab attention and make your audience stop scrolling?
         </p>
         <div className="hero-buttons">
           <button className="primary-btn">Portfolio</button>
-          <button className="outline-btn">Contact Us</button>
+       
+<button
+  className="outline-btn"
+  onClick={() => {
+    window.open(`https://wa.me/${phone}?text=${message}`, '_blank');
+  }}
+>
+  Contact Us
+</button>
         </div>
         </div>
         <div className="carousel-container">
