@@ -1,47 +1,45 @@
 import React from 'react';
 import './Testimonials.css';
 
-export const testimonials = [
-  {
-    quote: "Their editing gave my brand a fresh, professional look. My audience noticed the difference immediately!",
-    name: "Chris Evans",
-    title: "Fitness Coach",
-    avatar: "https://i.pravatar.cc/100?img=12",
-    rating: 5,
-  },
-  {
-    quote: "Amazing service! Very professional and timely.",
-    name: "Taylor Smith",
-    title: "Entrepreneur",
-    avatar: "https://i.pravatar.cc/100?img=32",
-    rating: 5,
-  },
-  {
-    quote: "Transformed my content completely. Highly recommended.",
-    name: "Jordan Lee",
-    title: "Marketing Expert",
-    avatar: "https://i.pravatar.cc/100?img=45",
-    rating: 4,
-  }
+import one from '../../assets/one.png';
+import two from '../../assets/two.png';
+import three from '../../assets/three.png';
+import four from '../../assets/four.png';
+import five from '../../assets/five.png';
+import six from '../../assets/six.png';
+
+const columns = [
+  [one, two, three],
+  [four, five, six],
+  [two, four, one],
 ];
 
-const Testimonial = () => {
-  // Duplicate testimonials to simulate infinite scroll
-  const extendedTestimonials = [...testimonials, ...testimonials];
+const scrollSpeeds = [40, 40, 40];
 
+const Testimonial = () => {
   return (
     <div className="vtc-wrapper">
-      
       <div className="vtc-fade-top" />
       <div className="vtc-fade-bottom" />
       <div className="vtc-columns">
-        {[0, 1, 2].map((colIndex) => (
-          <div className="vtc-column" key={colIndex}>
-            <div className="vtc-scroll-track">
-            <img src='public/photo.png'/>
+        {columns.map((columnImages, colIndex) => {
+          const scrollClass = colIndex === 1 ? 'vtc-scroll-down' : 'vtc-scroll-up';
+
+          return (
+            <div className="vtc-column" key={colIndex}>
+              <div
+                className={`vtc-scroll-track ${scrollClass}`}
+                style={{ animationDuration: `${scrollSpeeds[colIndex]}s` }}
+              >
+                {[...columnImages, ...columnImages].map((img, idx) => (
+                  <div className="vtc-image-wrapper" key={idx}>
+                    <img src={img} alt={`testimonial-${colIndex}-${idx}`} />
+                  </div>
+                ))}
+              </div>
             </div>
-          </div>
-        ))}
+          );
+        })}
       </div>
     </div>
   );

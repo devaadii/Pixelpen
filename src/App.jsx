@@ -11,6 +11,7 @@ import Testimonials from './components/testenomials/Testimonials'
 import PackagesSection from './components/package/PackagesSection'
 import VideoShowcase from './components/videoShowcase/VideoShowcase'
 import FAQSection from './components/FAQ/FAQSection'
+import "keen-slider/keen-slider.min.css";
 
 
 function App() {

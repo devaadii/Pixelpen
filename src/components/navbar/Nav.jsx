@@ -43,8 +43,8 @@ function Nav() {
           <li><a href="#services" className={activeLink === "services" ? "active" : ""}>Testimonials</a></li>
           <li><a href="#about" className={activeLink === "about" ? "active" : ""}>FAQ's</a></li>
         </ul>
-
-        <li><button className='book-call'>Book a Call</button></li>
+<a href="https://calendly.com/pixelpenmedia-in/30min">
+        <button className='book-call'>Book a Call</button></a>
       </div>
     </nav>
   );

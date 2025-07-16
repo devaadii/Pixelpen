@@ -17,8 +17,9 @@ const message = encodeURIComponent("Hi Pixelpen, I'm interested in your video ed
         <p className="hero-subtitle">
           Looking for <i>jaw-dropping edits, thumbnails, and scripts</i> that grab attention and make your audience stop scrolling?
         </p>
-        <div className="hero-buttons">
-          <button className="primary-btn">Portfolio</button>
+        <div className="hero-buttons" >
+          <a href='#portfolio'>
+          <button className="primary-btn">Portfolio</button></a>
        
 <button
   className="outline-btn"

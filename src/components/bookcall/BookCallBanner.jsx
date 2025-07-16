@@ -37,12 +37,13 @@ const BookCallBanner = () => {
     >
       <div className="book-banner-content">
         <h1 className="brand">{slides[current].brand}</h1>
-        <h2 className="headline">
-          {slides[current].headline.split('\n').map((line, idx) => (
-            <div key={idx}>{line}</div>
-          ))}
-        </h2>
-        <button className="book-button">Book a Call</button>
+       <h2 className="headline animate-slide-rtl" key={current}>
+  {slides[current].headline.split('\n').map((line, idx) => (
+    <div key={idx}>{line}</div>
+  ))}
+</h2>
+<a href="https://calendly.com/pixelpenmedia-in/30min"><button className="book-button">Book a Call</button></a>
+
       </div>
 
       <div className="carousel-dots">

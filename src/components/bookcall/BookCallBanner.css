@@ -38,7 +38,7 @@
 
 .headline {
   font-size: 28px;
-  font-weight: 700;
+  font-weight: 600;
   line-height: 1.4;
   margin-bottom: 25px;
 }
@@ -92,4 +92,18 @@ opacity: 0.4;
 .book-banner-content {
   position: relative;
   z-index: 1;
+}
+@keyframes slideInRightToLeft {
+  0% {
+    transform: translateX(60px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+.animate-slide-rtl {
+  animation: slideInRightToLeft 0.8s ease-out;
 }
