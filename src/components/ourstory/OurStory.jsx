@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import "./Ourstory.css";
+import "./ourstory.css";
 import image from "../../assets/Group 83 (1).png"
 
 const barData = [
