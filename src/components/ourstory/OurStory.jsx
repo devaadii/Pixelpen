@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import "./ourstory.css";
-import image from "../../assets/Group 83 (1).png"
+import image from "../../assets/Group 83.svg"
 
 const barData = [
   { id: 1, height: 270, left: 320 },
@@ -21,7 +21,7 @@ const OurStory = () => {
     <div className="ourStory">
       <h2 className="heading" >Our Story</h2>
       <div style={{display:"flex",justifyContent:"center" }}>
-      <img src={image} /></div>
+      <img style={{background:"transaparent"}} src={image} /></div>
   </div>
   );
 };

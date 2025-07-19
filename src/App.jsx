@@ -16,10 +16,11 @@ import "keen-slider/keen-slider.min.css";
 
 function App() {
   return (
-    <div className="layout">
+    <div className="layout"  >
       <Nav />
+  
       <main className="page-content">
-        <section id="home">
+            <section id="home">
           <Home />
    
         </section>

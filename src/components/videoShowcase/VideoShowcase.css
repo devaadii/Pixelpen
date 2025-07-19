@@ -1,10 +1,50 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
+@font-face {
+  font-family: 'Awesome';
+  src: url('/src/fonts/AwesomeSerifItalic-LightReg.otf');
+  font-weight: normal;
+  font-style: normal;
+}
+
+
+
 .dual-carousel-container {
   display: flex;
   flex-direction: column;
   gap: 40px;
 background: radial-gradient(circle, rgba(0, 92, 255, 0.4) 0%, transparent 50%);
-  padding: 100px 0;
+  padding:  0;
+}
 
+.header {
+  text-align: center;
+  z-index: 1;
+  position: relative;
+ color: white;
+  margin-top: 40px;
+
+}
+
+.header h2 {
+  font-family: "Awesome",serif;
+  font-size: 64px;
+  letter-spacing: 3px;
+     margin-bottom: 10px;
+      font-weight: 400;
+}
+
+.header p {
+   font-size: 18px;
+    opacity: 0.6;
+    margin-bottom: 80px;
+    font-family: "inter",sans-serif;
+}
+
+.img{
+  display: inline;
+  position: absolute;
+  right: 413px;
+  transform: translateY(-30px);
 }
 
 .carousel-row-custom {
@@ -55,4 +95,10 @@ background: radial-gradient(circle, rgba(0, 92, 255, 0.4) 0%, transparent 50%);
   display: block;
   transition: transform 0.3s ease;
   cursor: pointer;
+}
+.video-thumbnail {
+  border-radius: 8px;
+  display: block;
+  max-width: 100%;
+  height: auto;
 }

@@ -8,19 +8,18 @@
 
 
 .home {
-  min-height: 100vh; /* use min-height instead of height */
+  min-height: 100vh;
   width: 100vw;
-  position: relative;
   display: flex;
-  flex-direction: column;
-  justify-content: space-between; /* space between top content and image */
-  align-items: center;
-  color: rgba(255, 255, 255, 0.6);
-  text-align: center;
-  font-family: 'Inter', sans-serif;
-  padding: 2rem;
-  box-sizing: border-box;
 
+  align-items: center;           /* center vertically */
+  flex-direction: column;
+  padding: 2rem 0;
+  box-sizing: border-box;
+  text-align: center;
+  color: rgba(255, 255, 255, 0.6);
+  font-family: 'Inter', sans-serif;
+  position: relative;
 }
 
 .hero-content {
@@ -29,8 +28,6 @@
   display: flex;
   flex-direction: column;
   gap: 1.5rem;
- align-self: center;
-
 }
 
 .hero-title {
