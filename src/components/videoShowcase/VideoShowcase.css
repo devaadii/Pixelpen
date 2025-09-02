@@ -139,11 +139,8 @@ background: radial-gradient(circle, rgba(0, 92, 255, 0.4) 0%, transparent 50%);
   transform: scale(1.03);
 }
 
-/* Make center one horizontal */
-.horizontal-card {
-  width: 320px;
-  height: 360px;
-}
+
+
 .youtube-poster {
   width: 100%;
   height: 100%;

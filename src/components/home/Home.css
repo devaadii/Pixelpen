@@ -134,9 +134,12 @@
   margin-top: 0%;
 }
 
-.carousel-container{
-bottom: 0vh;
+.carousel-container {
+position: static;
+  width: 100%;
+  z-index: 1;
 }
+
 .hero-image{
   bottom: 15vh;
   left: 50%;               /* Move left edge to 50% */
