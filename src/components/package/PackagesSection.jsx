@@ -8,7 +8,7 @@ const PackagesSection = () => {
       <p className="subheading">Endless Possibilities</p>
 
       <div className="packages-grid">
-        {/* Package 1 */}
+
         <div className="package-card">
           <div className="ribbon">Popular</div>
           <h3 className="package-title">PixelPen Pro</h3>

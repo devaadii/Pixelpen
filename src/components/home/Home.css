@@ -8,6 +8,8 @@
 
 
 .home {
+      margin-left: auto;
+  margin-right: auto;
   min-height: 100vh;
   width: 100vw;
   display: flex;
@@ -23,11 +25,13 @@
 }
 
 .hero-content {
+
   margin-top: 10vh;
   max-width: 70ch;
   display: flex;
   flex-direction: column;
   gap: 1.5rem;
+
 }
 
 .hero-title {
@@ -120,4 +124,45 @@
 #atten{
   font-family: "Awesome",serif ;
   color: white;
+}
+@media (max-width: 768px) {
+  .home{
+   min-height: 65vh;
+  padding-bottom: 0%;
+  }
+.hero-content {
+  margin-top: 0%;
+}
+
+.carousel-container{
+bottom: 0vh;
+}
+.hero-image{
+  bottom: 15vh;
+  left: 50%;               /* Move left edge to 50% */
+  transform: translateX(-45%) translateY(20%);  
+  display: none;
+}
+
+  .primary-btn,
+  .outline-btn {
+    width: auto;             /* Remove fixed vw width */
+    min-width: 140px;        /* Maintain a usable minimum width */
+    padding: 0.75rem 1.5rem; /* Slightly reduce horizontal padding */
+    font-size: 1rem;         /* Keep font size legible */
+  }
+
+  .hero-buttons {
+    justify-content: center;
+    gap: 1rem; /* slightly less gap on mobile */
+  }
+}
+
+@media (max-width: 480px) {
+  .primary-btn,
+  .outline-btn {
+    min-width: 120px;
+    padding: 0.65rem 1.2rem;
+    font-size: 0.95rem;
+  }
 }

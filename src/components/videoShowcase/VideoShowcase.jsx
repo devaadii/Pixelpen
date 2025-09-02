@@ -1,8 +1,22 @@
-import React, { useState } from "react";
+import React, { useState,useEffect } from "react";
 import Marquee from "react-fast-marquee";
 import "./VideoShowcase.css";
 import thumb1 from "../../assets/thumb.jpg";
 import img from "../../assets/Vector 5.png";
+import img2 from "../../assets/Vector 6.png"
+
+
+const useIsMobile = () => {
+  const [isMobile, setIsMobile] = useState(false);
+  useEffect(() => {
+    const checkMobile = () => setIsMobile(window.innerWidth <= 768);
+    checkMobile();
+    window.addEventListener("resize", checkMobile);
+    return () => window.removeEventListener("resize", checkMobile);
+  }, []);
+  return isMobile;
+};
+
 
 const topRowVideos = [
   {
@@ -84,6 +98,7 @@ const bottomRowVideos = [
 
 
 const VideoRow = ({ videos, direction, horizontalIndex = null }) => {
+    const isMobile = useIsMobile();
 const [played, setPlayed] = useState({});
 const [hovered, setHovered] = useState({});
 
@@ -153,13 +168,24 @@ export default function VideoShowcase() {
       <div className="video-carousel-heading">
         <div className="header">
           <h2>Our Edits, Your Story</h2>
-          <img className="img" src={img} />
+
+          {/* Desktop Vector */}
+          <img className="img img-desktop" src={img} alt="vector desktop" />
+
+     
+
+
           <p>Results That Speak for Themselves.</p>
+                 
+    <img className="img img-mobile" src={img2} alt="vector mobile" />
         </div>
       </div>
+
       <div className="dual-carousel-container">
         <VideoRow videos={topRowVideos} direction="left" horizontalIndex={2} />
-        <VideoRow videos={bottomRowVideos} direction="right" />
+  <div className="bottom-row-container">
+    <VideoRow videos={bottomRowVideos} direction="right" />
+  </div>
       </div>
     </>
   );

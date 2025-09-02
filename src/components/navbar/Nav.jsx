@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import "./nav.css";
+import "../../assets/logo.png"
 
 function Nav() {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -16,10 +17,7 @@ function Nav() {
           }
         });
       },
-      {
-        threshold: 0.4, // Try reducing this value for better detection
-        rootMargin: "0px 0px -40% 0px" // Helps detect section earlier
-      }
+      { threshold: 0.4, rootMargin: "0px 0px -40% 0px" }
     );
 
     sections.forEach((section) => observer.observe(section));
@@ -27,24 +25,38 @@ function Nav() {
     return () => observer.disconnect();
   }, []);
 
+  const handleLinkClick = () => setMenuOpen(false);
+
   return (
     <nav className="navbar">
       <div className="navbar-container">
+        
+        {/* Logo always left */}
         <h1 className="logo">PixelPen.</h1>
 
+        {/* Hamburger aligned right (mobile only) */}
         <div className="menu-icon" onClick={() => setMenuOpen(!menuOpen)}>
           ☰
         </div>
 
+        {/* Nav Menu */}
         <ul className={menuOpen ? "nav-links open" : "nav-links"}>
-          <li><a href="#home" className={activeLink === "home" ? "active" : ""}>Home</a></li>
-          <li><a href="#portfolio" className={activeLink === "portfolio" ? "active" : ""}>Portfolio</a></li>
-          <li><a href="#case-study" className={activeLink === "case-study" ? "active" : ""}>Services</a></li>
-          <li><a href="#services" className={activeLink === "services" ? "active" : ""}>Testimonials</a></li>
-          <li><a href="#about" className={activeLink === "about" ? "active" : ""}>FAQ's</a></li>
+          <li><a href="#home" className={activeLink === "home" ? "active" : ""} onClick={handleLinkClick}>Home</a></li>
+          <li><a href="#portfolio" className={activeLink === "portfolio" ? "active" : ""} onClick={handleLinkClick}>Portfolio</a></li>
+          <li><a href="#case-study" className={activeLink === "case-study" ? "active" : ""} onClick={handleLinkClick}>Services</a></li>
+          <li><a href="#services" className={activeLink === "services" ? "active" : ""} onClick={handleLinkClick}>Testimonials</a></li>
+          <li><a href="#about" className={activeLink === "about" ? "active" : ""} onClick={handleLinkClick}>FAQ's</a></li>
+
+          {/* Book a Call in mobile menu */}
+          <li className="mobile-book">
+            <a href="https://calendly.com/pixelpenmedia-in/30min" onClick={handleLinkClick}>📞 Book a Call</a>
+          </li>
         </ul>
-<a href="https://calendly.com/pixelpenmedia-in/30min">
-        <button className='book-call'>Book a Call</button></a>
+
+        {/* Desktop Book Call */}
+        <a href="https://calendly.com/pixelpenmedia-in/30min" className="desktop-book">
+          <button className='book-call'>Book a Call</button>
+        </a>
       </div>
     </nav>
   );

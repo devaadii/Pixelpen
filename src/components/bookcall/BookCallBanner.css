@@ -107,3 +107,55 @@ opacity: 0.4;
 .animate-slide-rtl {
   animation: slideInRightToLeft 0.8s ease-out;
 }
+/* Responsive Styles */
+@media (max-width: 768px) {
+  .book-banner {
+    width: 95%;
+    padding: 20px;
+    margin-top: 40px;
+    margin-bottom: 40px;
+  }
+
+  .brand {
+    font-size: 20px;
+  }
+
+  .headline {
+    font-size: 20px;
+    margin-bottom: 20px;
+  }
+
+  .book-button {
+    padding: 10px 50px;
+    font-size: 14px;
+  }
+
+  .carousel-dots {
+    margin-top: 15px;
+    gap: 6px;
+  }
+
+  .dot {
+    width: 8px;
+    height: 8px;
+  }
+}
+
+@media (max-width: 400px) {
+  .book-banner {
+    padding: 15px;
+  }
+
+  .brand {
+    font-size: 18px;
+  }
+
+  .headline {
+    font-size: 18px;
+  }
+
+  .book-button {
+    padding: 10px 30px;
+    font-size: 13px;
+  }
+}

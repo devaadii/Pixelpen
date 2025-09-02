@@ -75,6 +75,64 @@ background: radial-gradient(circle, rgba(0, 92, 255, 0.4) 0%, transparent 50%);
   transition: transform 0.3s ease;
   cursor: pointer;
 }
+/* Hide mobile vector on desktop */
+.img-mobile {
+  display: none;
+}
+
+/* Only mobiles (max-width: 768px) */
+@media (max-width: 768px) {
+  /* Hide desktop vector */
+
+  .img-desktop {
+    display: none;
+  }
+
+  /* Show mobile vector, inline and centered below <p> */
+  .img-mobile {
+    display: block;
+    width: 70px; /* adjust size as needed */
+    margin: 8px auto 0 auto; /* center horizontally, add top margin */
+    position: static; /* ensure normal flow */
+  transform: translateX(35%) translateY(-5%);
+
+  }
+
+  /* Center the <p> text with margin bottom some space for vector */
+  .header p {
+    text-align: center;
+    margin-bottom: 0;
+  }
+
+
+
+
+.bottom-row-container{
+  display: none;
+}
+
+
+
+  /* Smaller text */
+  .header h2 {
+    font-size: 40px;
+    letter-spacing: 1.5px;
+  }
+
+  /* Adjust video sizes */
+  .video-card {
+    width: 140px;
+    height: 220px;
+    margin: 0 8px;
+  }
+
+  .horizontal-card {
+    width: 320px;
+    height: 180px;
+  }
+
+
+}
 
 .video-card video:hover,
 .video-card iframe:hover {
@@ -83,7 +141,7 @@ background: radial-gradient(circle, rgba(0, 92, 255, 0.4) 0%, transparent 50%);
 
 /* Make center one horizontal */
 .horizontal-card {
-  width: 640px;
+  width: 320px;
   height: 360px;
 }
 .youtube-poster {

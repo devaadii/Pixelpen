@@ -19,7 +19,7 @@
   .heading {
     margin-bottom: 10px;
     font-family: "Awesome",serif;
-    font-size: 64px;
+    font-size: 40px;
     font-weight: 400;
   }
   
@@ -124,4 +124,13 @@ b{
   transform: translate(calc((1 - cos(45deg))*100%), -100%) rotate(45deg);
   transform-origin: 0% 100%;
   background-color: #fff; 
+}
+@media (max-width: 768px) {
+.heading{
+  margin-bottom: 5px;
+}
+.subheading{
+  margin-bottom: 40px;
+}
+
 }
