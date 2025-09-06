@@ -13,8 +13,7 @@
   min-height: 100vh;
   width: 100vw;
   display: flex;
-
-  align-items: center;           /* center vertically */
+  align-items: center;          
   flex-direction: column;
   padding: 2rem 0;
   box-sizing: border-box;
@@ -133,18 +132,17 @@
 .hero-content {
   margin-top: 0%;
 }
-
-.carousel-container {
-position: static;
-  width: 100%;
-  z-index: 1;
+.hero-subtitle {
+  margin: 0 5vw;
 }
 
+
+
 .hero-image{
-  bottom: 15vh;
+  bottom: 4vh;
   left: 50%;               /* Move left edge to 50% */
   transform: translateX(-45%) translateY(20%);  
-  display: none;
+
 }
 
   .primary-btn,

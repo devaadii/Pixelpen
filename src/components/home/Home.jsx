@@ -2,6 +2,7 @@ import React from 'react';
 import './Home.css';
 import Carousel from './carousel/Carousel';
 import image from "../../assets/Group 82.png"
+import UnicornStudioEmbed from './UnicornStudioEmbed';
 
 
 function Home() {
@@ -20,7 +21,7 @@ const message = encodeURIComponent("Hi Pixelpen, I'm interested in your video ed
         <div className="hero-buttons" >
           <a href='#portfolio'>
           <button className="primary-btn">Portfolio</button></a>
-       
+   
 <button
   className="outline-btn"
   onClick={() => {
@@ -29,9 +30,12 @@ const message = encodeURIComponent("Hi Pixelpen, I'm interested in your video ed
 >
   Contact Us
 </button>
+
         </div>
         </div>
+           
         <div className="carousel-container">
+           
         <Carousel />
       </div>
   <img className="hero-image" src={image} alt="hero" />

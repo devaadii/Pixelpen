@@ -47,8 +47,9 @@ export default function FAQSection() {
         {faqs.map((faq, index) => (
           <div key={faq.id} className="faq-item" onClick={() => toggle(faq.id)}>
             <div className="faq-question">
+                 <span className="faq-index">Q{index + 1}</span>
               <div>
-              <span className="faq-index">Q{index + 1}</span>
+           
               <span className="faq">{faq.question}</span></div>
               <span className="faq-icon">{openId === faq.id ? "−" : "+"}</span>
             </div>

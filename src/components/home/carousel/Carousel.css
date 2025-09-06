@@ -83,3 +83,25 @@
     transform: translateX(0);
   }
 }
+
+@media (max-width: 768px) {
+  .carousel-text__section {
+    gap: 2vh; /* smaller vertical gap between rows */
+  }
+
+  .carousel-text__item {
+    margin: 0 15px; /* smaller horizontal spacing */
+    font-size: 16px; /* slightly smaller text */
+  }
+}
+
+@media (max-width: 480px) {
+  .carousel-text__section {
+    gap: 1.5vh;
+  }
+
+  .carousel-text__item {
+    margin: 0 10px; /* very compact on small screens */
+    font-size: 14px;
+  }
+}

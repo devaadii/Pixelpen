@@ -40,6 +40,7 @@ html {
 }
 
 @media (max-width: 768px) {
+  
   .page-content {
     max-width: 100%;       /* Take full width */
     margin-left: auto;

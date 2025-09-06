@@ -106,7 +106,7 @@
     flex-direction: row;
     justify-content: flex-start;
     gap: 20px; /* space between hamburger & logo */
-
+ 
   }
 
   .menu-icon {
@@ -122,21 +122,7 @@
   }
 
   /* Mobile nav menu (same as before) */
-  .nav-links {
-    position: absolute;
-    top: 70px;
-    left: 0;
-    height: calc(100vh - 70px);
-    width: 75%;
-    max-width: 300px;
-    flex-direction: column;
-    align-items: flex-start;
-    padding: 40px 20px;
-    gap: 20px;
-    background: rgba(0, 0, 0, 0.95);
-    transform: translateX(-100%); /* now slide from left */
-    transition: transform 0.3s ease-in-out;
-  }
+
 
   .nav-links.open {
     transform: translateX(0);
@@ -187,6 +173,7 @@
     font-size: 28px;
     cursor: pointer;
     color: white;
+ 
   }
 
   .logo {
@@ -204,11 +191,14 @@
     max-width: 300px;
     flex-direction: column;
     align-items: flex-start;
-    padding: 0;
+    z-index: 80000;
+    padding: 40px 20px;
     gap: 20px;
-    background: rgba(0, 0, 0, 0.95);
+    background: rgb(0, 0, 0);
     transform: translateX(-100%); /* Slide in from left */
     transition: transform 0.3s ease-in-out;
+      border-radius: 0 16px 16px 0; /* top-right & bottom-right */
+
   }
 
   .nav-links.open {
