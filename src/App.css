@@ -1,15 +1,22 @@
 body {
   background: rgba(1, 1, 1, 1) url('./assets/9481dd68e28604e053133d0c6be29639.jpeg') center/cover no-repeat;
+   box-sizing: border-box; /* ✅ ensures they don’t exceed */
+  max-width: 100%;        /* ✅ prevent overflow */
+  overflow-x: hidden;
   position: relative;
   margin: 0%;
   background-blend-mode: multiply; 
   padding: 0%;
   cursor: url('./assets/Vector.png'), auto;
-  width: 100vw;
+  width: 100%;
+  overflow-x: hidden; 
 }
 
 /* Grid Overlay */
 body::before {
+   box-sizing: border-box; /* ✅ ensures they don’t exceed */
+  max-width: 100%;        /* ✅ prevent overflow */
+  overflow-x: hidden;
   content: "";
   position: fixed;
   top: 0;
