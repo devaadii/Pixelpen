@@ -139,6 +139,7 @@
 
 
 .hero-image{
+  width: 80vw;
   bottom: 4vh;
   left: 50%;               /* Move left edge to 50% */
   transform: translateX(-45%) translateY(20%);  
