@@ -86,8 +86,16 @@
 
 @media (max-width: 768px) {
   .carousel-text__section {
-    gap: 2vh; /* smaller vertical gap between rows */
-  }
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 1vh;
+  margin-top: 200px;
+  z-index: -5;
+  opacity: 0.4;
+}
 
   .carousel-text__item {
     margin: 0 15px; /* smaller horizontal spacing */
@@ -97,7 +105,7 @@
 
 @media (max-width: 480px) {
   .carousel-text__section {
-    gap: 1.5vh;
+    gap: 1vh;
   }
 
   .carousel-text__item {
