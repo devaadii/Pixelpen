@@ -58,7 +58,7 @@ const Testimonial = () => {
         <div className="mobile-only">
      <div
   className="htc-scroll-track"
-  style={{ animationDuration: "900s" }} // adjust here
+  style={{ animationDuration: "90000s" }} // adjust here
 >
   {[...allImages, ...allImages].map((img, idx) => (
     <div className="htc-image-wrapper" key={idx}>

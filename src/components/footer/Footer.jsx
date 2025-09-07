@@ -56,7 +56,7 @@ const Footer = () => {
 >
           <div className="footer-tweet">
             <div className="tweet-header">
-              <div className="tweet-avatar">P.</div>
+              <div className="tweet-avatar">पि.</div>
               <div className="tweet-user">
                 <strong>PixelPen Media</strong>
                 <span>@PixelpenMedia</span>

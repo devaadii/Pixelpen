@@ -184,6 +184,6 @@ background: radial-gradient(circle, rgba(0, 92, 255, 0.4) 0%, transparent 50%);
     transform: translateX(0);
   }
   100% {
-    transform: translateX(-9000%);
+    transform: translateX(-900000%);
   }
 }
