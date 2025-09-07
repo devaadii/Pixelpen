@@ -77,3 +77,16 @@ html {
   z-index: -1;
   }
 }
+@media (max-width: 768px) {
+    body::after {
+      content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 35vh; 
+  background: radial-gradient(circle at 50% -20%, rgba(0, 92, 255, 1), transparent 70%);
+  pointer-events: none;
+  z-index: -1;
+  }
+}
