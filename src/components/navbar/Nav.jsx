@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import "./nav.css";
-import "../../assets/logo.png"
+import img from "../../assets/pixelpen logo full bw -cropped.svg" 
 
 function Nav() {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -32,7 +32,7 @@ function Nav() {
       <div className="navbar-container">
         
         {/* Logo always left */}
-        <h1 className="logo">PixelPen.</h1>
+       <img className='logo' src={img} />
 
         {/* Hamburger aligned right (mobile only) */}
         <div className="menu-icon" onClick={() => setMenuOpen(!menuOpen)}>

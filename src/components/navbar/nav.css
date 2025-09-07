@@ -41,12 +41,9 @@
 }
 
 .logo {
-  color: white;
   font-family: 'Neue', sans-serif;
-  font-size: 24px;
-  font-weight: bold;
-  font-weight: 700;
-  width: 10vw;
+  width: 7vw;
+
 }
 
 .menu-icon {
@@ -149,6 +146,10 @@
 /* Mobile Responsive */
 @media (max-width: 768px) {
   /* Hide Desktop Book a Call */
+.logo {
+  width: 16vw;
+}
+
   .book-call {
     display: none;
   }
