@@ -10,6 +10,7 @@ import BookCallBanner from './components/bookcall/BookCallBanner'
 import Testimonials from './components/testenomials/Testimonials'
 import PackagesSection from './components/package/PackagesSection'
 import VideoShowcase from './components/videoShowcase/VideoShowcase'
+import CustomCarousel from './components/videoShowcase/mobileCarousel/CustomCarousel'
 import FAQSection from './components/FAQ/FAQSection'
 import "keen-slider/keen-slider.min.css";
 
@@ -27,6 +28,7 @@ function App() {
         <OurStory />
         <section id="portfolio">
           <VideoShowcase />
+          <CustomCarousel/>
         </section>
         <section id="case-study">
           <PackagesSection />

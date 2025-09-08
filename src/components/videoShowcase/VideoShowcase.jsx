@@ -21,13 +21,13 @@ const useIsMobile = () => {
 const topRowVideos = [
   {
     id: 1,
-    src: "https://www.youtube.com/embed/ZDOj45zYPcM",
+    src: "https://www.youtube.com/embed/ZDOj45zPcM",
     poster: thumb1,
     type: "youtube",
   },
   {
     id: 2,
-    src: "https://www.youtube.com/embed/3JZ_D3ELwOQ?controls=0",
+    src:"https://www.youtube.com/embed/ZDOj45zYPcM",
     poster: "/thumbs/thumb2.jpg",
     type: "youtube",
   },

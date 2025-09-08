@@ -82,6 +82,9 @@ background: radial-gradient(circle, rgba(0, 92, 255, 0.4) 0%, transparent 50%);
 
 /* Only mobiles (max-width: 768px) */
 @media (max-width: 768px) {
+  .dual-carousel-container {
+display: none;
+}
   /* Hide desktop vector */
 
   .img-desktop {
