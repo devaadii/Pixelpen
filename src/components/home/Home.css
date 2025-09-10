@@ -126,7 +126,8 @@
 }
 @media (max-width: 768px) {
   .home{
-   min-height: 65vh;
+   min-height: 58vh;
+   padding-top: 0;
   padding-bottom: 0%;
   }
 .hero-content {
