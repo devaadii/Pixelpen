@@ -4,7 +4,7 @@ import "./PackagesSection.css";
 const PackagesSection = () => {
   return (
     <div className="packages-wrapper">
-      <h2 className="heading">Two Packages</h2>
+      <h2 className="heading" style={{position:"relative", right:"5px"}}>Two Packages</h2>
       <p className="subheading">Endless Possibilities</p>
 
       <div className="packages-grid">

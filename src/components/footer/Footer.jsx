@@ -1,5 +1,6 @@
 import React from 'react';
 import './Footer.css';
+import logo from "../../assets/pixelpen logo bw-cropped.svg"
 
 import { FaTwitter, FaFacebookF, FaInstagram,FaLinkedin } from 'react-icons/fa';
 
@@ -56,7 +57,7 @@ const Footer = () => {
 >
           <div className="footer-tweet">
             <div className="tweet-header">
-              <div className="tweet-avatar">पि.</div>
+              <div className="tweet-avatar"><img src={logo} /></div>
               <div className="tweet-user">
                 <strong>PixelPen Media</strong>
                 <span>@PixelpenMedia</span>
@@ -72,7 +73,6 @@ const Footer = () => {
         </div>
 
         <div className="footer-bottom">
-          <div className="footer-brand">PixelPen Media</div>
           <div id='copyright'>
           ©️ 2024 PixelPen Media. All rights reserved.
           </div>

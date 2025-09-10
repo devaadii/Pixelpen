@@ -153,37 +153,45 @@ background: radial-gradient(circle, rgba(0, 92, 255, 0.4) 0%, transparent 50%);
  
   }
 
-  .htc-scroll-track {
-    display: flex;
-    animation: htc-scroll-left 10s linear infinite;
-       
-  }
+.htc-scroll-container {
+  overflow: hidden;
+  width: 100%;
+  position: relative;
+}
 
-  .htc-image-wrapper {
-    min-width: 250px; /* each card width */
-    margin: 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-     
-  }
+.htc-scroll-track {
+  display: flex;
+  width: max-content;
+  animation: scroll-left 40s linear infinite;
+}
 
-  .htc-image-wrapper img {
-    width: 100%;
-    height: auto;
-    max-height: 200px;
-    border-radius: 10px;
-    object-fit: contain;
+ 
+.htc-image-wrapper {
+  min-width: 250px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+   flex-shrink: 0;
+}
 
-  }
+
+.htc-image-wrapper img {
+   display: block;
+  width: 100%;
+  max-height: 200px;
+  border-radius: 10px;
+  object-fit: contain;
+}
 }
 
 /* Horizontal infinite scroll animation */
-@keyframes htc-scroll-left {
-  0% {
+
+@keyframes scroll-left {
+  from {
     transform: translateX(0);
   }
-  100% {
-    transform: translateX(-900000%);
+  to {
+    transform: translateX(-50%); /* move half the track (1 full set of images) */
   }
 }
+

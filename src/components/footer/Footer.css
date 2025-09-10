@@ -62,9 +62,9 @@
     background: #2563eb;
     color: white;
     font-weight: bold;
-    font-size: 16px;
-    width: 36px;
-    height: 36px;
+    width: 32px;
+    height: 32px;
+    padding: 6px;
     border-radius: 50%;
     display: flex;
     align-items: center;
@@ -122,3 +122,31 @@
     font-size: 14px;
     color: #ccc;
   }
+
+  /* Existing styles above remain unchanged */
+
+@media (max-width: 768px) {
+  .footer-columns {
+    flex-direction: column;   /* stack vertically */
+    gap: 20px;                /* spacing between sections */
+  }
+
+  .footer-col {
+    width: 100%;              /* take full width */
+  }
+
+  .footer-tweet {
+    max-width: 100%;          /* expand on mobile */
+  }
+
+  .footer-bottom {
+    flex-direction: column;   /* stack brand, copyright, socials */
+    text-align: center;
+    gap: 15px;
+  }
+
+  .footer-socials {
+    justify-content: center;  /* center icons */
+    margin-top: 10px;
+  }
+}

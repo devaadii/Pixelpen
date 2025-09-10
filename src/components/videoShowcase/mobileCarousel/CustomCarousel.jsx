@@ -24,7 +24,7 @@ export default function CustomCarousel() {
   const [isPlaying, setIsPlaying] = useState(false);
   const playerRef = useRef(null);
 
-  // YouTube API loader
+  // Load YouTube API
   useEffect(() => {
     if (window.YT && window.YT.Player) return;
     const tag = document.createElement("script");
@@ -133,184 +133,198 @@ export default function CustomCarousel() {
             : "custom-carousel-vertical"
         }`}
       >
-<div
-  className="custom-carousel-track"
-  style={{
-    transform: `translateX(-${currentIndex * 100}%)`,
-  }}
->
- {slides.map((slide, index) => (
-  <div
-    key={index}
-    className={`custom-carousel-slide ${
-      slide.orientation === "horizontal"
-        ? "custom-carousel-horizontal"
-        : "custom-carousel-vertical"
-    }`}
-  >
-    {isPlaying && index === currentIndex ? (
-      <div className="video-wrapper">
-        <div id={`yt-player-${index}`} className="player-host" />
-        <button className="custom-carousel-close" onClick={stopVideo}>
-          ✕
-        </button>
-      </div>
-    ) : (
-      <div
-        className="custom-carousel-thumb-wrapper"
-        onClick={() => handleThumbnailClick(index)}
-      >
-        <img
-          src={slide.thumbnail}
-          alt={`Video thumbnail ${index}`}
-          className="custom-carousel-video-thumb"
-        />
-        <div className="custom-carousel-play-button">▶</div>
-      </div>
-    )}
-  </div>
-))}
+        <div
+          className="custom-carousel-track"
+          style={{
+            transform: `translateX(-${currentIndex * 100}%)`,
+          }}
+        >
+          {slides.map((slide, index) => (
+            <div
+              key={index}
+              className={`custom-carousel-slide ${
+                slide.orientation === "horizontal"
+                  ? "custom-carousel-horizontal"
+                  : "custom-carousel-vertical"
+              }`}
+            >
+              {isPlaying && index === currentIndex ? (
+                <div className="video-wrapper">
+                  <div id={`yt-player-${index}`} className="player-host" />
+                  <button className="custom-carousel-close" onClick={stopVideo}>
+                    ✕
+                  </button>
+                </div>
+              ) : (
+                <div
+                  className="custom-carousel-thumb-wrapper"
+                  onClick={() => handleThumbnailClick(index)}
+                >
+                  <img
+                    src={slide.thumbnail}
+                    alt={`Video thumbnail ${index}`}
+                    className="custom-carousel-video-thumb"
+                  />
+                  <div className="custom-carousel-play-button">▶</div>
+                </div>
+              )}
+            </div>
+          ))}
         </div>
-
-        <button
-          className="custom-carousel-arrow custom-carousel-arrow-left"
-          onClick={prevSlide}
-        >
-          &#10094;
-        </button>
-        <button
-          className="custom-carousel-arrow custom-carousel-arrow-right"
-          onClick={nextSlide}
-        >
-          &#10095;
-        </button>
       </div>
-<style jsx>{`
-.custom-carousel-container {
-  display: flex;
-  justify-content: center; /* horizontal center */
-  align-items: center;     /* vertical center */
-  width: 100%;
-}
 
-  .custom-carousel {
-    position: relative;
-    overflow: hidden;
-    background: black;
-    width: 100%;
-    border: 12px solid #111;   /* phone bezel */
-    border-radius: 32px;       /* phone rounded corners */
-    box-shadow: 0 0 20px rgba(0,0,0,0.4);
-  }
+      {/* Arrows outside carousel but controlled by CSS */}
+      <button
+        className="custom-carousel-arrow custom-carousel-arrow-left"
+        onClick={prevSlide}
+      >
+        &#10094;
+      </button>
+      <button
+        className="custom-carousel-arrow custom-carousel-arrow-right"
+        onClick={nextSlide}
+      >
+        &#10095;
+      </button>
 
-  .custom-carousel-track {
-  display: flex;
-  transition: transform 0.6s ease-in-out;
-  width: 100%;
-  height: 100%;
-}
+      <style jsx>{`
+          .custom-carousel-container {
+          display:none;
+          }
+      @media (max-width: 768px) {
+        .custom-carousel-container {
+          position: relative;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          width: 100%;
+          top:10px;
+        }
 
-  .custom-carousel-horizontal {
-    aspect-ratio: 16 / 9;
-    max-height: 280px; /* like watching in landscape on a phone */
-  }
+        .custom-carousel {
+          position: relative;
+          overflow: hidden;
+          background: black;
+          width: 100%;
+          border: 12px solid #111; /* phone bezel */
+          border-radius: 32px;
+          box-shadow: 0 0 20px rgba(0, 0, 0, 0.4);
+        }
 
-  .custom-carousel-vertical {
-    aspect-ratio: 9 / 16;
-    max-width:300px
+        .custom-carousel-track {
+          display: flex;
+          transition: transform 0.6s ease-in-out;
+          width: 100%;
+          height: 100%;
+        }
 
-  }
+        .custom-carousel-horizontal {
+          aspect-ratio: 16 / 9;
+          max-height: 280px;
+        }
 
+        .custom-carousel-vertical {
+          aspect-ratio: 9 / 16;
+          max-width: 300px;
+        }
 
+        .custom-carousel-slide {
+          flex-shrink: 0;
+          position: relative;
+          width: 100%;
+          height: 100%;
+        }
 
- .custom-carousel-slide {
-  flex-shrink: 0;
-  position: relative;
-  width: 100%;   /* for horizontal */
-  height: 100%;  /* for vertical */
-}
+        .video-wrapper {
+          position: relative;
+          width: 100%;
+          height: 100%;
+        }
 
-  .video-wrapper {
-    position: relative;
-    width: 100%;
-    height: 100%;
-  }
+        .player-host {
+          width: 100%;
+          height: 100%;
+          border-radius: 24px;
+          overflow: hidden;
+        }
 
-  .player-host {
-    width: 100%;
-    height: 100%;
-    border-radius: 24px; /* match phone frame */
-    overflow: hidden;
-  }
+        .custom-carousel-thumb-wrapper {
+          position: relative;
+          width: 100%;
+          height: 100%;
+          min-height: 200px;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+        }
 
-.custom-carousel-thumb-wrapper {
-  position: relative;
-  width: 100%;
-  height: 100%;
-  min-height: 200px;   /* ✅ guarantees visible thumbnail */
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
+        .custom-carousel-video-thumb {
+          display: block;
+          width: 100%;
+          height: 100%;
+          border-radius: 24px;
+          object-fit: cover;
+        }
 
-.custom-carousel-video-thumb {
-  display: block;
-  width: 100%;
-  height: auto;        /* ✅ prevents collapsing */
-  border-radius: 24px;
-  object-fit: cover;
-}
+        .custom-carousel-play-button {
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -50%);
+          background: rgba(0, 0, 0, 0.6);
+          color: white;
+          font-size: 32px;
+          padding: 12px 20px;
+          border-radius: 50%;
+          cursor: pointer;
+          z-index: 10;
+        }
 
-  .custom-carousel-play-button {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    background: rgba(0, 0, 0, 0.6);
-    color: white;
-    font-size: 32px;
-    padding: 12px 20px;
-    border-radius: 50%;
-    cursor: pointer;
-    z-index: 10;
-  }
+        .custom-carousel-close {
+          position: absolute;
+          top: 8px;
+          right: 8px;
+          background: rgba(0, 0, 0, 0.6);
+          color: white;
+          font-size: 18px;
+          border: none;
+          border-radius: 50%;
+          width: 34px;
+          height: 34px;
+          cursor: pointer;
+          z-index: 1002;
+        }
 
-  .custom-carousel-close {
-    position: absolute;
-    top: 8px;
-    right: 8px;
-    background: rgba(0, 0, 0, 0.6);
-    color: white;
-    font-size: 18px;
-    border: none;
-    border-radius: 50%;
-    width: 34px;
-    height: 34px;
-    cursor: pointer;
-    z-index: 1002;
-  }
+        /* === ARROWS === */
+        .custom-carousel-arrow {
+          position: absolute;
+          top: 50%;
+          transform: translateY(-50%);
+          background-color: rgba(255, 255, 255, 0.9);
+          border: none;
+          font-size: 24px;
+          cursor: pointer;
+          padding: 8px;
+          z-index: 2000;
+          border-radius: 50%;
+        }
 
-.custom-carousel-arrow {
-  position: absolute;          /* inside the carousel */
-  top: 50%;                    /* vertically center */
-  transform: translateY(-50%);
-  background-color: rgba(255, 255, 255, 0.9);
-  border: none;
-  font-size: 24px;
-  cursor: pointer;
-  padding: 8px;
-  z-index: 1001;
-  border-radius: 50%;
-}
+        /* ✅ Horizontal arrows: inside bezel */
+        .custom-carousel-horizontal ~ .custom-carousel-arrow-left {
+          left: 16px;
+        }
+        .custom-carousel-horizontal ~ .custom-carousel-arrow-right {
+          right: 16px;
+        }
 
-.custom-carousel-arrow-left {
-  left: 16px;   /* fixed distance from left */
-}
-
-.custom-carousel-arrow-right {
-  right: 16px;  /* fixed distance from right */
-}
-`}</style>
+        /* ✅ Vertical arrows: outside bezel, 15px from viewport edge */
+        .custom-carousel-vertical ~ .custom-carousel-arrow-left {
+          left: 15px;
+        }
+        .custom-carousel-vertical ~ .custom-carousel-arrow-right {
+          right: 15px;
+      }}
+      `}</style>
     </div>
   );
 }

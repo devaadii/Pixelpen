@@ -54,21 +54,24 @@ const Testimonial = () => {
           })}
         </div>
 
-        {/* Mobile → single horizontal infinite carousel */}
-        <div className="mobile-only">
-     <div
-  className="htc-scroll-track"
-  style={{ animationDuration: "90000s" }} // adjust here
->
-  {[...allImages, ...allImages].map((img, idx) => (
-    <div className="htc-image-wrapper" key={idx}>
-      <img src={img} alt={`testimonial-horizontal-${idx}`} />
+
+
+{/* Mobile → single horizontal infinite carousel */}
+<div className="mobile-only">
+  <div className="htc-scroll-container">
+    <div className="htc-scroll-track">
+      {[...allImages, ...allImages].map((img, idx) => (
+        <div className="htc-image-wrapper" key={idx}>
+          <img src={img} alt={`testimonial-horizontal-${idx}`} />
+        </div>
+      ))}
     </div>
-  ))}
+  </div>
 </div>
 
-        </div>
-      </div>
+</div>
+
+     
     </>
   );
 };

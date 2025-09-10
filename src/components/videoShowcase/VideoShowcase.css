@@ -27,7 +27,7 @@ background: radial-gradient(circle, rgba(0, 92, 255, 0.4) 0%, transparent 50%);
 
 .header h2 {
   font-family: "Awesome",serif;
-  font-size: 64px;
+  font-size: 40px;
   letter-spacing: 3px;
      margin-bottom: 10px;
       font-weight: 400;
@@ -43,8 +43,8 @@ background: radial-gradient(circle, rgba(0, 92, 255, 0.4) 0%, transparent 50%);
 .img{
   display: inline;
   position: absolute;
-  right: 413px;
-  transform: translateY(-30px);
+  right: 500px;
+  transform: translateY(-25px);
 }
 
 .carousel-row-custom {
