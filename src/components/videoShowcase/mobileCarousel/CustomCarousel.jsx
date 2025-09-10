@@ -4,8 +4,8 @@ import img from "../../../assets/thumb.jpg";
 const slides = [
   {
     orientation: "horizontal",
-    thumbnail: "video-horizontal-thumb.jpg",
-    videoSrc: "ZDOj45zYPcM", // use video ID (not full embed URL)
+    thumbnail: img,
+    videoSrc: "ZDOj45zYPcM",
   },
   {
     orientation: "vertical",
@@ -14,7 +14,7 @@ const slides = [
   },
   {
     orientation: "vertical",
-    thumbnail: "short2-thumb.jpg",
+    thumbnail: img,
     videoSrc: "SHORT2_ID",
   },
 ];
@@ -24,18 +24,16 @@ export default function CustomCarousel() {
   const [isPlaying, setIsPlaying] = useState(false);
   const playerRef = useRef(null);
 
-  // load YT API once
+  // YouTube API loader
   useEffect(() => {
     if (window.YT && window.YT.Player) return;
     const tag = document.createElement("script");
     tag.src = "https://www.youtube.com/iframe_api";
     document.body.appendChild(tag);
-    // no need to set window.onYouTubeIframeAPIReady here; handled below when creating player
   }, []);
 
-  // create / destroy player when isPlaying changes or slide changes
+  // Manage player lifecycle
   useEffect(() => {
-    // if not playing, destroy existing player (if any)
     if (!isPlaying) {
       if (playerRef.current) {
         try {
@@ -46,9 +44,7 @@ export default function CustomCarousel() {
       return;
     }
 
-    // create player helper
     const createPlayer = () => {
-      // defensive: destroy previous
       if (playerRef.current) {
         try {
           playerRef.current.destroy();
@@ -60,27 +56,24 @@ export default function CustomCarousel() {
         videoId: slides[currentIndex].videoSrc,
         width: "100%",
         height: "100%",
-        playerVars: {
-          autoplay: 1,
-          rel: 0,
-        },
+        playerVars: { autoplay: 1, rel: 0 },
         events: {
           onReady: () => {
-            // ensure iframe stacking / sizing so buttons can overlay it
             try {
               const iframe = playerRef.current.getIframe();
               if (iframe) {
-                iframe.style.position = "absolute";
-                iframe.style.top = "0";
-                iframe.style.left = "0";
-                iframe.style.width = "100%";
-                iframe.style.height = "100%";
-                iframe.style.zIndex = "1"; // keep it below UI controls
+                Object.assign(iframe.style, {
+                  position: "absolute",
+                  top: "0",
+                  left: "0",
+                  width: "100%",
+                  height: "100%",
+                  zIndex: "1",
+                });
               }
             } catch (e) {}
           },
           onStateChange: (event) => {
-            // auto return to thumbnail when ended
             if (event.data === window.YT.PlayerState.ENDED) {
               setIsPlaying(false);
             }
@@ -92,11 +85,9 @@ export default function CustomCarousel() {
     if (window.YT && window.YT.Player) {
       createPlayer();
     } else {
-      // If API not ready, set callback
       window.onYouTubeIframeAPIReady = createPlayer;
     }
 
-    // cleanup for this effect
     return () => {
       if (playerRef.current) {
         try {
@@ -108,14 +99,9 @@ export default function CustomCarousel() {
   }, [isPlaying, currentIndex]);
 
   const stopVideo = () => {
-    if (playerRef.current && playerRef.current.pauseVideo) {
-      try {
-        playerRef.current.pauseVideo();
-      } catch (e) {}
+    if (playerRef.current) {
       try {
         playerRef.current.stopVideo();
-      } catch (e) {}
-      try {
         playerRef.current.destroy();
       } catch (e) {}
       playerRef.current = null;
@@ -138,47 +124,6 @@ export default function CustomCarousel() {
     setIsPlaying(true);
   };
 
-  const renderSlide = (slide, index) => {
-    const isActive = index === currentIndex;
-    return (
-      <div
-        key={index}
-        className={`custom-carousel-slide ${
-          slide.orientation === "horizontal"
-            ? "custom-carousel-horizontal"
-            : "custom-carousel-vertical"
-        }`}
-        style={{ display: isActive ? "block" : "none" }}
-      >
-        {isActive && isPlaying ? (
-          <div className="video-wrapper">
-            {/* YT Player will inject an iframe into this div */}
-            <div id={`yt-player-${index}`} className="player-host" />
-            <button
-              className="custom-carousel-close"
-              onClick={stopVideo}
-              aria-label="Close video"
-            >
-              ✕
-            </button>
-          </div>
-        ) : (
-          <div
-            className="custom-carousel-thumb-wrapper"
-            onClick={() => handleThumbnailClick(index)}
-          >
-            <img
-              src={slide.thumbnail}
-              alt={`Video thumbnail ${index}`}
-              className="custom-carousel-video-thumb"
-            />
-            <div className="custom-carousel-play-button">▶</div>
-          </div>
-        )}
-      </div>
-    );
-  };
-
   return (
     <div className="custom-carousel-container">
       <div
@@ -188,129 +133,184 @@ export default function CustomCarousel() {
             : "custom-carousel-vertical"
         }`}
       >
-        {slides.map((slide, index) => renderSlide(slide, index))}
+<div
+  className="custom-carousel-track"
+  style={{
+    transform: `translateX(-${currentIndex * 100}%)`,
+  }}
+>
+ {slides.map((slide, index) => (
+  <div
+    key={index}
+    className={`custom-carousel-slide ${
+      slide.orientation === "horizontal"
+        ? "custom-carousel-horizontal"
+        : "custom-carousel-vertical"
+    }`}
+  >
+    {isPlaying && index === currentIndex ? (
+      <div className="video-wrapper">
+        <div id={`yt-player-${index}`} className="player-host" />
+        <button className="custom-carousel-close" onClick={stopVideo}>
+          ✕
+        </button>
+      </div>
+    ) : (
+      <div
+        className="custom-carousel-thumb-wrapper"
+        onClick={() => handleThumbnailClick(index)}
+      >
+        <img
+          src={slide.thumbnail}
+          alt={`Video thumbnail ${index}`}
+          className="custom-carousel-video-thumb"
+        />
+        <div className="custom-carousel-play-button">▶</div>
+      </div>
+    )}
+  </div>
+))}
+        </div>
 
         <button
           className="custom-carousel-arrow custom-carousel-arrow-left"
           onClick={prevSlide}
-          aria-label="Previous slide"
         >
           &#10094;
         </button>
         <button
           className="custom-carousel-arrow custom-carousel-arrow-right"
           onClick={nextSlide}
-          aria-label="Next slide"
         >
           &#10095;
         </button>
       </div>
+<style jsx>{`
+.custom-carousel-container {
+  display: flex;
+  justify-content: center; /* horizontal center */
+  align-items: center;     /* vertical center */
+  width: 100%;
+}
 
-      <style jsx>{`
-        .custom-carousel-container {
-          width: 100%;
-          max-width: 720px;
-          margin: auto;
-          position: relative;
-        }
-        .custom-carousel {
-          position: relative;
-          overflow: hidden;
-          background: black;
-          width: 100%;
-        }
-        /* make wrapper aspect-ratio change with orientation */
-        .custom-carousel-horizontal {
-          aspect-ratio: 16 / 9;
-        }
-        .custom-carousel-vertical {
-          aspect-ratio: 9 / 16;
-        }
+  .custom-carousel {
+    position: relative;
+    overflow: hidden;
+    background: black;
+    width: 100%;
+    border: 12px solid #111;   /* phone bezel */
+    border-radius: 32px;       /* phone rounded corners */
+    box-shadow: 0 0 20px rgba(0,0,0,0.4);
+  }
 
-        .custom-carousel-slide {
-          width: 100%;
-          position: absolute;
-          top: 0;
-          left: 0;
-          z-index: 0; /* slides low so controls can overlay */
-        }
+  .custom-carousel-track {
+  display: flex;
+  transition: transform 0.6s ease-in-out;
+  width: 100%;
+  height: 100%;
+}
 
-        .player-host {
-          position: absolute; /* YT iframe will be absolutely positioned inside */
-          top: 0;
-          left: 0;
-          width: 100%;
-          height: 100%;
-          z-index: 1; /* iframe will inherit this from getIframe styling */
-        }
+  .custom-carousel-horizontal {
+    aspect-ratio: 16 / 9;
+    max-height: 280px; /* like watching in landscape on a phone */
+  }
 
-        .video-wrapper {
-          position: relative;
-          width: 100%;
-          height: 100%;
-        }
+  .custom-carousel-vertical {
+    aspect-ratio: 9 / 16;
+    max-width:300px
 
-        .custom-carousel-video-thumb {
-          width: 100%;
-          height: 100%;
-          object-fit: cover;
-          cursor: pointer;
-        }
-        .custom-carousel-thumb-wrapper {
-          position: relative;
-          width: 100%;
-          height: 100%;
-        }
-        .custom-carousel-play-button {
-          position: absolute;
-          top: 50%;
-          left: 50%;
-          transform: translate(-50%, -50%);
-          background: rgba(0, 0, 0, 0.6);
-          color: white;
-          font-size: 32px;
-          padding: 12px 20px;
-          border-radius: 50%;
-          cursor: pointer;
-          z-index: 10;
-        }
+  }
 
-        /* Close button */
-        .custom-carousel-close {
-          position: absolute;
-          top: 8px;
-          right: 8px;
-          background: rgba(0, 0, 0, 0.6);
-          color: white;
-          font-size: 18px;
-          border: none;
-          border-radius: 50%;
-          width: 34px;
-          height: 34px;
-          cursor: pointer;
-          z-index: 1002; /* above iframe */
-        }
 
-        /* Arrows */
-        .custom-carousel-arrow {
-          position: absolute;
-          top: 50%;
-          transform: translateY(-50%);
-          background-color: rgba(255, 255, 255, 0.9);
-          border: none;
-          font-size: 24px;
-          cursor: pointer;
-          padding: 8px;
-          z-index: 1001; /* above iframe */
-          border-radius: 50%;
-        }
-        .custom-carousel-arrow-left {
-          left: 8px;
-        }
-        .custom-carousel-arrow-right {
-          right: 8px;
-        }
-      `}</style>
+
+ .custom-carousel-slide {
+  flex-shrink: 0;
+  position: relative;
+  width: 100%;   /* for horizontal */
+  height: 100%;  /* for vertical */
+}
+
+  .video-wrapper {
+    position: relative;
+    width: 100%;
+    height: 100%;
+  }
+
+  .player-host {
+    width: 100%;
+    height: 100%;
+    border-radius: 24px; /* match phone frame */
+    overflow: hidden;
+  }
+
+.custom-carousel-thumb-wrapper {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  min-height: 200px;   /* ✅ guarantees visible thumbnail */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.custom-carousel-video-thumb {
+  display: block;
+  width: 100%;
+  height: auto;        /* ✅ prevents collapsing */
+  border-radius: 24px;
+  object-fit: cover;
+}
+
+  .custom-carousel-play-button {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: rgba(0, 0, 0, 0.6);
+    color: white;
+    font-size: 32px;
+    padding: 12px 20px;
+    border-radius: 50%;
+    cursor: pointer;
+    z-index: 10;
+  }
+
+  .custom-carousel-close {
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    background: rgba(0, 0, 0, 0.6);
+    color: white;
+    font-size: 18px;
+    border: none;
+    border-radius: 50%;
+    width: 34px;
+    height: 34px;
+    cursor: pointer;
+    z-index: 1002;
+  }
+
+.custom-carousel-arrow {
+  position: absolute;          /* inside the carousel */
+  top: 50%;                    /* vertically center */
+  transform: translateY(-50%);
+  background-color: rgba(255, 255, 255, 0.9);
+  border: none;
+  font-size: 24px;
+  cursor: pointer;
+  padding: 8px;
+  z-index: 1001;
+  border-radius: 50%;
+}
+
+.custom-carousel-arrow-left {
+  left: 16px;   /* fixed distance from left */
+}
+
+.custom-carousel-arrow-right {
+  right: 16px;  /* fixed distance from right */
+}
+`}</style>
     </div>
   );
 }
