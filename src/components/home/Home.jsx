@@ -34,12 +34,12 @@ const message = encodeURIComponent("Hi Pixelpen, I'm interested in your video ed
         </div>
         </div>
            
-        <div className="carousel-container">
+      
+  <img className="hero-image" src={image} alt="hero" />
+  <div className="carousel-container">
            
         <Carousel />
       </div>
-  <img className="hero-image" src={image} alt="hero" />
-
   
  
     

@@ -6,7 +6,7 @@
   flex-direction: column;
   gap: 4vh;
   margin-top: 200px;
-  z-index: -5;
+  z-index: 0;
   opacity: 0.4;
 }
 
@@ -14,6 +14,7 @@
   position: relative;
   overflow: hidden;
   height: 40px;
+  z-index: 0;
 }
 
 .carousel-text__fade-left,
@@ -93,7 +94,7 @@
   flex-direction: column;
   gap: 1vh;
   margin-top: 200px;
-  z-index: -5;
+  z-index: 0;
   opacity: 0.4;
 }
 
