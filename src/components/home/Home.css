@@ -126,7 +126,7 @@
 }
 @media (max-width: 768px) {
   .home{
-   min-height: 58vh;
+   min-height: 65vh;
    padding-top: 0;
   padding-bottom: 0%;
   }
