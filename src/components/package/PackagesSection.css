@@ -111,21 +111,45 @@ b{
   font-family: "inter",sans-serif;
 }
 .ribbon {
-  --f: .01em; 
-  
+  --f: .01em;
   position: absolute;
   top: 0;
   right: 0;
   line-height: 1.8;
   padding-inline: 1.5lh;
   padding-bottom: var(--f);
-  border-image: conic-gradient(#0008 0 0) 51%/var(--f);
-  clip-path: polygon(
-    100% calc(100% - var(--f)),100% 100%,calc(100% - var(--f)) calc(100% - var(--f)),var(--f) calc(100% - var(--f)), 0 100%,0 calc(100% - var(--f)),999px calc(100% - var(--f) - 999px),calc(100% - 999px) calc(100% - var(--f) - 999px));
-  transform: translate(calc((1 - cos(45deg))*100%), -100%) rotate(45deg);
+  transform: translate(calc((1 - cos(45deg)) * 100%), -100%) rotate(45deg);
   transform-origin: 0% 100%;
-  background-color: #fff; 
+  
+  background: #fff; /* solid fill */
+  color: #000;
+  font-size: 14px;
+  font-weight: bold;
+  font-family: "Inter", sans-serif;
+  border-radius: 4px;
+  z-index: 1;
+  overflow: hidden;
 }
+
+/* Glowing border */
+.ribbon::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border: 2px solid transparent;
+  border-radius: 4px;
+  background: linear-gradient(120deg, #00f, #fff, #00f) border-box;
+  -webkit-mask: 
+    linear-gradient(#fff 0 0) padding-box, 
+    linear-gradient(#fff 0 0);
+  -webkit-mask-composite: destination-out;
+  mask-composite: exclude;
+
+  background-size: 300% 300%;
+  animation: ribbonShine 4s linear infinite;
+  z-index: -1;
+}
+
 @media (max-width: 768px) {
 .heading{
   margin-bottom: 5px;
@@ -134,4 +158,16 @@ b{
   margin-bottom: 40px;
 }
 
+}
+
+@keyframes ribbonShine {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
 }

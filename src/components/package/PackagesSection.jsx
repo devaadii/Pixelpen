@@ -21,6 +21,9 @@ const PackagesSection = () => {
                 </span>
               </span>
             </li>
+             <li>
+              <span className="arrow">➜</span> <b>Click-Worthy</b> Thumbnails
+            </li>
             <li>
               <span className="arrow">➜</span> Fast <b>Turnarounds</b>
             </li>
