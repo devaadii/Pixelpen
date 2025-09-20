@@ -185,6 +185,9 @@ background: radial-gradient(circle, rgba(0, 92, 255, 0.4) 0%, transparent 50%);
   width: 100%;
   border-radius: 10px;
   object-fit: contain;
+    pointer-events: none;   /* prevents touch events going to the image */
+  user-select: none;
+  -webkit-user-drag: none;
 }
 
 
