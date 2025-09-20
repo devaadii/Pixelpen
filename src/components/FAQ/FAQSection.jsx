@@ -4,12 +4,12 @@ import "./FAQSection.css";
 const faqs = [
   {
     id: 1,
-    question: "What makes PixelPen different from typical freelancers or agencies?",
+    question: "What makes Pixelpen different from typical freelancers or agencies?",
     answer:"PixelPen Media doesn’t edit videos—we engineer attention. Freelancers follow briefs. We build brands. No fluff. No templates. Just content that hits different."
 
   },  {
     id: 2,
-    question: "What’s PixelPen’s unfair advantage?"
+    question: "What’s Pixelpen’s unfair advantage?"
 ,
     answer: "We speak both languages—creative and strategy. We don’t just “make things look good”—we make them work in the wild."
   },
