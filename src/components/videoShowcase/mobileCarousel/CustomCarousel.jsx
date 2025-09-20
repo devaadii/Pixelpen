@@ -300,6 +300,7 @@ export default function CustomCarousel() {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
+  textalign: centre; 
   background-color: rgba(0, 92, 255, 0.5);
   color: white;
   border: none;

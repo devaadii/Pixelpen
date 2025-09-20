@@ -32,17 +32,11 @@ const message = encodeURIComponent("Hi Pixelpen, I'm interested in your video ed
 </button>
 
         </div>
-        </div>
-           
-      
+        </div>     
   <img className="hero-image" src={image} alt="hero" />
-  <div className="carousel-container">
-           
+  <div className="carousel-container">  
         <Carousel />
-      </div>
-  
- 
-    
+      </div>  
     </div>
   );
 }
