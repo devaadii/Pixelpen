@@ -186,40 +186,8 @@ background: radial-gradient(circle, rgba(0, 92, 255, 0.4) 0%, transparent 50%);
   border-radius: 10px;
   object-fit: contain;
 }
-/* extra */
 
-.mobile-only {
-  display: block;
-  overflow: hidden;
-  width: 100%;
-  position: relative;
-}
 
-.htc-scroll-container {
-  overflow-x: auto;          /* ✅ make it scrollable */
-  overflow-y: hidden;
-  white-space: nowrap;
-  scroll-behavior: smooth;   /* ✅ smooth manual scroll */
-  -webkit-overflow-scrolling: touch; /* ✅ inertia on iOS */
-}
-
-.htc-scroll-track {
-  display: flex;
-  width: max-content;
-}
-
-.htc-image-wrapper {
-  min-width: 250px;
-  flex-shrink: 0;
-  scroll-snap-align: center;   /* ✅ snap each image */
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.htc-scroll-container {
-  scroll-snap-type: x mandatory; /* ✅ snapping enabled */
-}
 
 
 }

@@ -58,32 +58,14 @@ const Testimonial = () => {
 
 {/* Mobile → single horizontal infinite carousel */}
 <div className="mobile-only">
-  <div
-    className="htc-scroll-container"
-    ref={(el) => {
-      if (!el) return;
-      // Auto scroll loop
-      let scrollInterval;
-      const startAutoScroll = () => {
-        scrollInterval = setInterval(() => {
-          if (!el) return;
-          el.scrollBy({ left: 1, behavior: "auto" }); // slow drift
-          if (el.scrollLeft >= el.scrollWidth / 2) {
-            el.scrollLeft = 0; // reset for infinite loop
-          }
-        }, 30); // adjust speed
-      };
-
-      startAutoScroll();
-
-      // Pause when user touches / scrolls
-      el.addEventListener("touchstart", () => clearInterval(scrollInterval));
-      el.addEventListener("touchend", startAutoScroll);
-      el.addEventListener("mouseenter", () => clearInterval(scrollInterval));
-      el.addEventListener("mouseleave", startAutoScroll);
-    }}
-  >
-    <div className="htc-scroll-track">
+  <div className="htc-scroll-container">
+    <div
+      className={`htc-scroll-track`}
+      onTouchStart={(e) => e.currentTarget.classList.add("paused")}
+      onTouchEnd={(e) => e.currentTarget.classList.remove("paused")}
+      onMouseEnter={(e) => e.currentTarget.classList.add("paused")}   
+      onMouseLeave={(e) => e.currentTarget.classList.remove("paused")}
+    >
       {[...allImages, ...allImages].map((img, idx) => (
         <div className="htc-image-wrapper" key={idx}>
           <img src={img} alt={`testimonial-horizontal-${idx}`} />
@@ -92,6 +74,7 @@ const Testimonial = () => {
     </div>
   </div>
 </div>
+
 </div>
 
      
