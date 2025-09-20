@@ -165,6 +165,7 @@
     align-items: center;
     padding: 0;
     margin: 0%;
+ 
   }
 
   /* Hamburger visible only on mobile, stays right */
@@ -199,7 +200,7 @@
     transform: translateX(-100%); /* Slide in from left */
     transition: transform 0.3s ease-in-out;
       border-radius: 0 16px 16px 0; /* top-right & bottom-right */
-
+   z-index: 10000000000000000000000000000;
   }
 
   .nav-links.open {

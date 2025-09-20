@@ -11,7 +11,7 @@ const faqs = [
     id: 2,
     question: "What’s PixelPen’s unfair advantage?"
 ,
-    answer: "We speak both languages—creative and strategy. We don’t just “make things look good”—we make them work in the wild. early beta features are also part of the PixelPen Pro package."
+    answer: "We speak both languages—creative and strategy. We don’t just “make things look good”—we make them work in the wild."
   },
 
 

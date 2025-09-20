@@ -31,7 +31,8 @@ const PackagesSection = () => {
               <span className="arrow">➜</span> <b>Flawless</b> Output
             </li>
           </ul>
-          <button className="book-btn">Book a Call</button>
+                <a href="https://calendly.com/pixelpenmedia-in/30min">
+          <button className="book-btn">Book a Call</button></a>
         </div>
 
         {/* Package 2 */}
@@ -67,7 +68,8 @@ const PackagesSection = () => {
               </span>
             </li>
           </ul>
-          <button className="book-btn">Book a Call</button>
+          <a href="https://calendly.com/pixelpenmedia-in/30min">
+          <button className="book-btn">Book a Call</button></a>
         </div>
       </div>
     </div>

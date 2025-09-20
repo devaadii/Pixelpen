@@ -296,18 +296,25 @@ export default function CustomCarousel() {
         }
 
         /* === ARROWS === */
-        .custom-carousel-arrow {
-          position: absolute;
-          top: 50%;
-          transform: translateY(-50%);
-          background-color: rgba(255, 255, 255, 0.9);
-          border: none;
-          font-size: 24px;
-          cursor: pointer;
-          padding: 8px;
-          z-index: 2000;
-          border-radius: 50%;
-        }
+     .custom-carousel-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: rgba(0, 92, 255, 0.5);
+  color: white;
+  border: none;
+  font-size: 24px;
+  cursor: pointer;
+  
+  width: 30px;   /* ✅ fixed width */
+  height: 30px;  /* ✅ fixed height */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  border-radius: 50%; /* ✅ always perfect circle */
+  z-index: 2000;
+}
 
         /* ✅ Horizontal arrows: inside bezel */
         .custom-carousel-horizontal ~ .custom-carousel-arrow-left {

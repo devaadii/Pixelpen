@@ -40,12 +40,16 @@ const Footer = () => {
              
             </ul>
           </div>
+
           <div className="footer-col">
             <h4>Legal</h4>
             <ul>
-              <li>Terms & Conditions*</li>
-              <li>Privacy Policy</li>
-              <li>Refund & Cancelation Policy</li>
+               <a style={{textDecoration:"none"}} href='https://docs.google.com/document/d/1YpoOrvIp8g4RjUpOg7vJ25KNSycRcZ-Fg-Xa2Q31pjM/edit?tab=t.0#heading=h.81j7ctahqlmo'>
+              <li>Terms & Conditions*</li></a>
+              <a style={{textDecoration:"none"}} href='https://docs.google.com/document/d/1McgvKduaXe0BBJmv752i3JC0icPvxT_ftIvLMlCgw0s/edit?tab=t.0#heading=h.lxq7gd2poa2f'>
+              <li>Privacy Policy</li></a>
+              <a style={{textDecoration:"none"}} href='https://docs.google.com/document/d/1k4G8E08qQh5mNZkSiTlVg0XQj0KSOhQ-zZrs69dhvto/edit?tab=t.0#heading=h.mvm4x2ret5bz'>
+              <li>Refund & Cancelation Policy</li></a>
             </ul>
           </div>
 
@@ -59,7 +63,7 @@ const Footer = () => {
             <div className="tweet-header">
               <div className="tweet-avatar"><img src={logo} /></div>
               <div className="tweet-user">
-                <strong>PixelPen Media</strong>
+                <strong>Pixelpen Media</strong>
                 <span>@PixelpenMedia</span>
               </div>
               <div className="tweet-icon">
@@ -73,7 +77,7 @@ const Footer = () => {
         </div>
 
         <div className="footer-bottom">
-          <div id='copyright'>
+          <div id='copyright'style={{color:"white"}}>
           ©️ 2024 PixelPen Media. All rights reserved.
           </div>
           <div className="footer-socials">

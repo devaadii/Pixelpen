@@ -4,17 +4,17 @@ import './BookCallBanner.css';
 
 const slides = [
   {
-    brand: "PixelPen.",
+    brand: "Pixelpen.",
     headline: "Book a Call Now to Discuss further.",
   
   },
   {
-    brand: "PixelPen.",
+    brand: "Pixelpen.",
     headline: "Let’s Make Your Vision Real.",
     image: "/banner2.jpg",
   },
   {
-    brand: "PixelPen.",
+    brand: "Pixelpen.",
     headline: "Bring Your Story to Life with Us.",
     image: "/banner3.jpg",
   },
