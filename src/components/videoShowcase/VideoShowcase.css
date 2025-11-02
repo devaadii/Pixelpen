@@ -1,167 +1,120 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
-@font-face {
-  font-family: 'Awesome';
-  src: url('/src/fonts/AwesomeSerifItalic-LightReg.otf');
-  font-weight: normal;
-  font-style: normal;
-}
-
-
-
-.dual-carousel-container {
+.video-showcase {
   display: flex;
-  flex-direction: column;
-  gap: 40px;
-background: radial-gradient(circle, rgba(0, 92, 255, 0.4) 0%, transparent 50%);
-  padding:  0;
-     background: radial-gradient(circle at center, rgba(0, 92, 255, 0.2), rgba(0, 92, 255, 0)), rgba(0, 0, 0, 0.6);
-}
-
-.header {
-  text-align: center;
-  z-index: 1;
-  position: relative;
- color: white;
-  margin-top: 40px;
-
-}
-
-.header h2 {
-  font-family: "Awesome",serif;
-  font-size: 40px;
-  letter-spacing: 3px;
-     margin-bottom: 10px;
-      font-weight: 400;
-}
-
-.header p {
-   font-size: 18px;
-    opacity: 0.6;
-    margin-bottom: 80px;
-    font-family: "inter",sans-serif;
-}
-
-.img{
-  display: inline;
-  position: absolute;
-  right: 500px;
-  transform: translateY(-25px);
-}
-
-.carousel-row-custom {
-  overflow: hidden;
-    display: flex;
-  width: 100%;
   align-items: center;
+  justify-content: center;
+  gap: 2rem;
+  padding: 2rem;
+  flex-wrap: wrap;
 }
 
-.video-card {
-  margin: 0 20px;
-  border-radius: 20px;
+/* Shared screen base style */
+.video-frame-wrapper {
+  position: relative;
   overflow: hidden;
-  width: 220px;
-  height: 360px;
-  box-shadow: 0 0 25px rgba(0, 0, 0, 0.4);
-  background: black;
- 
+  border-radius: 24px;
+  background: #000;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+  transition: transform 0.4s ease, box-shadow 0.3s ease;
 }
-  .horizontal-card {
-    width: 598px;
-    height: 297px;
+
+/* Horizontal (16:9) screens — sides */
+.video-frame-wrapper.horizontal {
+  aspect-ratio: 16 / 9;
+  width: 420px;
+}
+
+/* Vertical (9:16) screen — center */
+.video-frame-wrapper.vertical {
+  aspect-ratio: 9 / 16;
+  width: 320px;
+
+}
+
+/* Center screen slightly larger and elevated */
+.center-screen {
+  transform: scale(1.05);
+  z-index: 2;
+}
+
+/* Hover animation */
+.video-frame-wrapper:hover {
+  transform: scale(1.07);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
+}
+
+/* Responsive design */
+@media (max-width: 900px) {
+  .video-showcase {
+    gap: 1rem;
   }
+  .video-frame-wrapper.horizontal {
+    width: 220px;
+  }
+  .video-frame-wrapper.vertical {
+    width: 200px;
+  }
+}
 
+@media (max-width: 700px) {
+  .video-showcase {
+    flex-direction: column;
+  }
+  .video-frame-wrapper {
+    width: 80vw;
+  }
+}
 
-.video-card video,
-.video-card iframe {
+/* Thumbnail button styling */
+.video-thumb {
   width: 100%;
   height: 100%;
   border: none;
-  object-fit: cover;
-  transition: transform 0.3s ease;
+  background: none;
   cursor: pointer;
-}
-/* Hide mobile vector on desktop */
-.img-mobile {
-  display: none;
+  position: relative;
+  padding: 0;
 }
 
-/* Only mobiles (max-width: 768px) */
-@media (max-width: 768px) {
-  .dual-carousel-container {
-display: none;
-}
-  /* Hide desktop vector */
-
-  .img-desktop {
-    display: none;
-  }
-
-  /* Show mobile vector, inline and centered below <p> */
-  .img-mobile {
-    display: block;
-    width: 70px; /* adjust size as needed */
-    margin: 8px auto 0 auto; /* center horizontally, add top margin */
-    position: static; /* ensure normal flow */
-  transform: translateX(35%) translateY(-5%);
-
-  }
-
-  /* Center the <p> text with margin bottom some space for vector */
-  .header p {
-    text-align: center;
-    margin-bottom: 0;
-  }
-
-
-
-
-.bottom-row-container{
-  display: none;
+.thumbnail-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.4s ease;
 }
 
-
-
-  /* Smaller text */
-  .header h2 {
-    font-size: 40px;
-    letter-spacing: 1.5px;
-  }
-
-  /* Adjust video sizes */
-  .video-card {
-    width: 140px;
-    height: 220px;
-    margin: 0 8px;
-  }
-
-  .horizontal-card {
-    width: 320px;
-    height: 180px;
-  }
-
-
+.video-thumb:hover .thumbnail-img {
+  transform: scale(1.05);
 }
 
-.video-card video:hover,
-.video-card iframe:hover {
-  transform: scale(1.03);
+/* Play overlay */
+.play-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.45);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.3s ease;
 }
 
+.video-thumb:hover .play-overlay {
+  background: rgba(0, 0, 0, 0.3);
+}
 
+.play-icon {
+  width: 56px;
+  height: 56px;
+  opacity: 0.85;
+  transition: transform 0.3s ease;
+}
 
-.youtube-poster {
+.video-thumb:hover .play-icon {
+  transform: scale(1.1);
+}
+
+/* Embedded video frame */
+.video-frame {
   width: 100%;
   height: 100%;
   border: none;
-  border-radius: inherit;
-  object-fit: cover;
-  display: block;
-  transition: transform 0.3s ease;
-  cursor: pointer;
-}
-.video-thumbnail {
-  border-radius: 8px;
-  display: block;
-  max-width: 100%;
-  height: auto;
 }

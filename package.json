@@ -14,10 +14,11 @@
     "@splidejs/splide-extension-auto-scroll": "^0.5.3",
     "framer-motion": "^12.9.1",
     "keen-slider": "^6.8.6",
-    "react": "^19.0.0",
-    "react-dom": "^19.0.0",
+    "react": "^19.2.0",
+    "react-dom": "^19.2.0",
     "react-fast-marquee": "^1.6.5",
     "react-icons": "^5.5.0",
+    "react-lite-youtube-embed": "^2.5.6",
     "react-slick": "^0.30.3",
     "slick-carousel": "^1.8.1"
   },
@@ -33,7 +34,7 @@
     "globals": "^15.15.0",
     "husky": "^4.3.8",
     "postcss": "^8.5.6",
-    "tailwindcss": "^4.1.11",
+    "tailwindcss": "^4.1.16",
     "vite": "^6.2.0"
   }
 }

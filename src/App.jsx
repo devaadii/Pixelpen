@@ -27,7 +27,7 @@ function App() {
         </section>
         <OurStory />
         <section id="portfolio">
-          <VideoShowcase />
+ 
           <CustomCarousel/>
         </section>
         <section id="case-study">

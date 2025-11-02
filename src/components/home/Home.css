@@ -21,24 +21,24 @@
   color: rgba(255, 255, 255, 0.6);
   font-family: 'Inter', sans-serif;
   position: relative;
+  margin-top: 20px;
 }
 
 .hero-content {
-
   margin-top: 10vh;
   max-width: 70ch;
   display: flex;
   flex-direction: column;
   gap: 1.5rem;
-
 }
 
 .hero-title {
-  font-size: clamp(2rem, 5vw, 4rem);
+  font-size: clamp(2rem, 4vw, 4rem);
   font-weight: 200;
-  line-height: 1.2;
+  line-height: 1;
   z-index: 3;
   letter-spacing: -1px;
+  margin-bottom: 10px;
 }
 
 
@@ -103,7 +103,7 @@
 
 .carousel-container {
   position: absolute;
-  bottom: 0;
+  bottom: 10px;
   width: 100%;
   z-index: 0;
 }
@@ -123,15 +123,20 @@
 #atten{
   font-family: "Awesome",serif ;
   color: white;
+  font-size: 80px;
 }
 @media (max-width: 768px) {
   .home{
    min-height: 65vh;
    padding-top: 0;
   padding-bottom: 0%;
+    margin-top: 0px;
   }
 .hero-content {
   margin-top: 0%;
+}
+.hero-title {
+  margin-bottom: 0%;
 }
 .hero-subtitle {
   margin: 0 5vw;
@@ -141,6 +146,7 @@
   bottom: 0;
   width: 100%;
   z-index: 0;
+
 }
 
 
@@ -166,6 +172,12 @@ z-index: 400000000;
     justify-content: center;
     gap: 1rem; /* slightly less gap on mobile */
   }
+  #atten{
+  font-family: "Awesome",serif ;
+  color: white;
+  font-size: 50px;
+}
+  
 }
 
 @media (max-width: 480px) {

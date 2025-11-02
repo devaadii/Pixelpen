@@ -52,6 +52,7 @@
     border: 1px solid rgba(255, 255, 255, 0.1);
     z-index: 2;
     isolation: isolate; /* optional safeguard */
+    height: 57vh;
   }
   .package-title {
     font-size: 34px;
@@ -78,6 +79,8 @@
   }
   
   .book-btn {
+    position: absolute;
+    bottom: 20px;
     background: white;
     color: black;
     padding: 12px 18px;
@@ -87,7 +90,7 @@
     border-radius: 8px;
     cursor: pointer;
     transition: background 0.3s;
-     width: 100%;
+    width: 250px;
   }
   
   .book-btn:hover {
@@ -157,6 +160,24 @@ b{
 .subheading{
   margin-bottom: 40px;
 }
+  .package-card {
+    position: relative;
+    overflow: hidden; /* ensures ribbon doesn't overflow */
+    border-radius: 20px;
+    padding: 20px 25px;
+    width: 300px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    background: radial-gradient(circle at top left, rgba(0, 92, 255, 0.2), rgba(0, 92, 255, 0)), rgba(0, 0, 0, 0.6)
+    ;
+    background-blend-mode: normal;
+    text-align: left;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    z-index: 2;
+    isolation: isolate; /* optional safeguard */
+height: auto;
+  }
 
 }
 

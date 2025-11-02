@@ -12,8 +12,8 @@ const message = encodeURIComponent("Hi Pixelpen, I'm interested in your video ed
     <div className="home">
       <div className="hero-content">
         <h2 className="hero-title">
-          Professional Editing <br />That 
-          <span id='atten'> Grabs Attention.</span>
+          We Edit Instant<br />
+          <span id='atten'> Scroll Stoppers.</span>
         </h2>
         <p className="hero-subtitle">
           Looking for <i>jaw-dropping edits, thumbnails, and scripts</i> that grab attention and make your audience stop scrolling?
@@ -21,15 +21,13 @@ const message = encodeURIComponent("Hi Pixelpen, I'm interested in your video ed
         <div className="hero-buttons" >
           <a href='#portfolio'>
           <button className="primary-btn">Portfolio</button></a>
-   
+     <a href="#case-study">
+
 <button
   className="outline-btn"
-  onClick={() => {
-    window.open(`https://wa.me/${phone}?text=${message}`, '_blank');
-  }}
 >
-  Contact Us
-</button>
+  View Plans
+</button></a>
 
         </div>
         </div>     

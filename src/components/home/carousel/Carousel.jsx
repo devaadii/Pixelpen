@@ -3,10 +3,10 @@ import React from "react";
 import "./Carousel.css";
 
 const carouselData = [
-  ["Podcast Video Edit", "Youtube Video Edit", "Reel Cut", "Thumbnail Design", "Script Writing", "Video Ads","Podcast Video Edit", "Youtube Video Edit", "Reel Cut", "Thumbnail Design", "Script Writing", "Video Ads"],
-  ["Podcast Video Edit", "Youtube Video Edit", "Reel Cut", "Thumbnail Design", "Script Writing", "Video Ads","Podcast Video Edit", "Youtube Video Edit", "Reel Cut", "Thumbnail Design", "Script Writing", "Video Ads"],
-    ["Podcast Video Edit", "Youtube Video Edit", "Reel Cut", "Thumbnail Design", "Script Writing", "Video Ads","Podcast Video Edit", "Youtube Video Edit", "Reel Cut", "Thumbnail Design", "Script Writing", "Video Ads"],
-      ["Podcast Video Edit", "Youtube Video Edit", "Reel Cut", "Thumbnail Design", "Script Writing", "Video Ads","Podcast Video Edit", "Youtube Video Edit", "Reel Cut", "Thumbnail Design", "Script Writing", "Video Ads"],
+  ["Reel Edits", "Youtube Videos", "Corporate Videos", "Explainer Videos", "Product Launch Videos", "Video Ads","Podcast Edits", "Reel Edits", "Youtube Videos", "Corporate Videos", "Explainer Videos", "Product Launch Videos", "Video Ads","Podcast Edits"],
+  ["Reel Edits", "Youtube Videos", "Corporate Videos", "Explainer Videos", "Product Launch Videos", "Video Ads","Podcast Edits", "Reel Edits", "Youtube Videos", "Corporate Videos", "Explainer Videos", "Product Launch Videos", "Video Ads","Podcast Edits"],
+  ["Reel Edits", "Youtube Videos", "Corporate Videos", "Explainer Videos", "Product Launch Videos", "Video Ads","Podcast Edits", "Reel Edits", "Youtube Videos", "Corporate Videos", "Explainer Videos", "Product Launch Videos", "Video Ads","Podcast Edits"],
+  ["Reel Edits", "Youtube Videos", "Corporate Videos", "Explainer Videos", "Product Launch Videos", "Video Ads","Podcast Edits", "Reel Edits", "Youtube Videos", "Corporate Videos", "Explainer Videos", "Product Launch Videos", "Video Ads","Podcast Edits"],
 ];
 
 function CarouselRow({ items, direction }) {

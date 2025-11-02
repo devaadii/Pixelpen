@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import "./nav.css";
-import img from "../../assets/pixelpen logo full bw -cropped.svg" 
+import img from "../../assets/logo.png" 
 
 function Nav() {
   const [menuOpen, setMenuOpen] = useState(false);
