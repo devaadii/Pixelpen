@@ -7,7 +7,7 @@ const slides = [
   { orientation: "vertical", thumbnail: img1, videoSrc: "VAUGJjjH-5M" },
   { orientation: "vertical", thumbnail: img1, videoSrc: "K_iLudbzUPw" },
   { orientation: "horizontal",  videoSrc: "lRMTZnawla8" },
-  { orientation: "vertical", thumbnail: img1, videoSrc: "ZDOj45zYPcM" },
+  { orientation: "vertical", thumbnail: img1, videoSrc: "_IBQoPZC5OU" },
   { orientation: "vertical", thumbnail: img1, videoSrc: "oQQx64Io9I0" },
 ];
 
@@ -35,38 +35,40 @@ export default function CustomCarousel() {
         } catch {}
       }
 
-      playerRef.current = new window.YT.Player(`yt-player-${currentIndex}`, {
-        videoId: slides[currentIndex].videoSrc,
-        width: "100%",
-        height: "100%",
-      
-          playerVars: {
+    playerRef.current = new window.YT.Player(`yt-player-${currentIndex}`, {
+  videoId: slides[currentIndex].videoSrc,
+  width: "100%",
+  height: "100%",
+  playerVars: {
     autoplay: 1,
-    rel: 0,       // no related videos at the end
-    modestbranding: 1, // remove YouTube logo
-    controls: 0,  // show or hide controls (0 hides)
-    showinfo: 0,  // deprecated, but sometimes still helps
-    iv_load_policy: 3}, // hide annotations
-        events: {
-          onReady: () => {
-            try {
-              const iframe = playerRef.current.getIframe();
-              if (iframe)
-                Object.assign(iframe.style, {
-                  position: "absolute",
-                  top: 0,
-                  left: 0,
-                  width: "100%",
-                  height: "100%",
-                  borderRadius: "24px",
-                });
-            } catch {}
-          },
-          onStateChange: (e) => {
-            if (e.data === window.YT.PlayerState.ENDED) setIsPlaying(false);
-          },
-        },
-      });
+    mute: 1,          // 🔹 MUST mute for autoplay on mobile
+    rel: 0,
+    modestbranding: 1,
+    controls: 0,
+    iv_load_policy: 3,
+  },
+  events: {
+    onReady: (event) => {
+      try {
+        const iframe = playerRef.current.getIframe();
+        if (iframe) {
+          Object.assign(iframe.style, {
+            position: "absolute",
+            top: 0,
+            left: 0,
+            width: "100%",
+            height: "100%",
+            borderRadius: "24px",
+          });
+        }
+        event.target.playVideo();  // Start playback explicitly
+      } catch {}
+    },
+    onStateChange: (e) => {
+      if (e.data === window.YT.PlayerState.ENDED) setIsPlaying(false);
+    },
+  },
+});
     };
 
     if (window.YT && window.YT.Player) createPlayer();
@@ -149,10 +151,9 @@ export default function CustomCarousel() {
       {/* === Mobile Vertical Stack (fixed positioning) === */}
 <div className="mobile-video-list">
   {slides.map((slide, idx) => {
+    // Determine rotation only for thumbnails
     let rotation = "0deg";
-
-    // Apply tilt only to vertical videos
-    if (slide.orientation === "vertical") {
+    if (slide.orientation === "vertical" && !(isPlaying && idx === currentIndex)) {
       const verticalIndex = slides
         .slice(0, idx + 1)
         .filter(s => s.orientation === "vertical").length;
@@ -166,11 +167,11 @@ export default function CustomCarousel() {
           slide.orientation === "vertical"
             ? "mobile-vertical"
             : "mobile-horizontal"
-        }`}
-        style={{ transform: rotation, transition: "transform 0.3s ease" }}
+        } ${isPlaying && idx === currentIndex ? "playing" : ""}`}
+        style={{ transform: `rotate(${rotation})`, transition: "transform 0.3s ease" }}
       >
         {isPlaying && idx === currentIndex ? (
-          <div className="video-wrapper">
+          <div className="video-wrapper-no-transform">
             <div id={`yt-player-${idx}`} className="player-host" />
             <button className="custom-carousel-close" onClick={stopVideo}>
               ✕
@@ -181,11 +182,11 @@ export default function CustomCarousel() {
             className="custom-carousel-thumb-wrapper mobile-thumb"
             onClick={() => handleThumbnailClick(idx)}
           >
-           <img
-    src={`https://img.youtube.com/vi/${slide.videoSrc}/hqdefault.jpg`}
-   
-    className="custom-carousel-video-thumb"
-  />
+            <img
+              src={`https://img.youtube.com/vi/${slide.videoSrc}/hqdefault.jpg`}
+              alt={`Video ${idx}`}
+              className="custom-carousel-video-thumb"
+            />
             <div className="custom-carousel-play-button">▶</div>
           </div>
         )}
@@ -193,7 +194,6 @@ export default function CustomCarousel() {
     );
   })}
 </div>
-
       <style jsx>{`
         /* ========== DESKTOP ========== */
         .custom-carousel-thumb-wrapper {
@@ -368,15 +368,18 @@ export default function CustomCarousel() {
 
           /* each card / phone */
           .mobile-video-item {
-            width: 100%;
-            max-width: 420px; /* keeps nice reading width on larger phones */
-            border: 12px solid #111;
-            border-radius: 22px;
-            overflow: hidden;
-            background: black;
-            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
-            position: relative;
-          }
+    width: 100%;
+    max-width: 420px;
+    border: 12px solid #111;
+    border-radius: 22px;
+    overflow: hidden;
+    background: black;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
+    position: relative;
+  }
+ .mobile-video-item.playing {
+    transform: none !important;
+  }
 
           /* ensure the clickable thumbnail wrapper fills the card and clips children */
           .mobile-thumb {
@@ -390,21 +393,38 @@ export default function CustomCarousel() {
           }
 
           /* vertical (phone) items: taller */
-          .mobile-vertical.mobile-video-item,
-          .mobile-video-item.mobile-vertical {
-            aspect-ratio: 9 / 16;
-            max-width: 225px;
-            margin: 0 auto;
-          }
+         .mobile-vertical.mobile-video-item,
+  .mobile-video-item.mobile-vertical {
+    aspect-ratio: 9 / 16;
+    max-width: 225px;
+    margin: 0 auto;
+  }
 
-          /* horizontal (landscape) items: full width banner style */
-          .mobile-horizontal.mobile-video-item,
-          .mobile-video-item.mobile-horizontal {
-            aspect-ratio: 16 / 9;
-            width: 100%;
-            max-width: 320px;
-            margin: 0 auto;
-          }
+        
+  .mobile-horizontal.mobile-video-item,
+  .mobile-video-item.mobile-horizontal {
+    aspect-ratio: 16 / 9;
+    width: 100%;
+    max-width: 320px;
+    margin: 0 auto;
+  }
+      .video-wrapper-no-transform {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 10px; /* Slightly smaller than parent to prevent overflow */
+    overflow: hidden;
+  }
+  .mobile-video-item .player-host {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: inherit;
+  }
 
           /* thumbnail image fills wrapper exactly */
           .custom-carousel-video-thumb {
@@ -415,25 +435,9 @@ export default function CustomCarousel() {
             border-radius: inherit;
           }
 
-          /* play button centered absolutely inside mobile-thumb */
-          .mobile-thumb .custom-carousel-play-button {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            z-index: 12;
-            pointer-events: none; /* click falls through to wrapper */
-          }
+     
 
-          /* When playing, player-host should be absolutely positioned and fill card */
-          .mobile-video-item .player-host {
-            position: absolute;
-            inset: 0;
-            width: 100%;
-            height: 100%;
-            border-radius: 24px;
-            overflow: hidden;
-          }
+        
 
           /* show close button above iframe */
           .mobile-video-item .custom-carousel-close {
@@ -450,7 +454,7 @@ export default function CustomCarousel() {
             border-radius: 24px;
           }
 
-          /* legacy carousel parts are hidden on mobile (no arrows) */
+    
           .custom-carousel {
             display: none !important;
           }
@@ -459,17 +463,18 @@ export default function CustomCarousel() {
             width: 70px;
             margin: 8px auto 0;
             position: static;
-            transform: translateX(35%) translateY(-5%);
+ 
           }
-              .mobile-video-item.mobile-vertical {
-    transform: rotate(8deg); /* small clockwise tilt */
-    transition: transform 0.3s ease;
-  }
-
-  .mobile-video-item.mobile-vertical:hover {
-    transform: rotate(0deg); /* optional: straighten on hover */
-  }
+ 
+  
+    .video-wrapper-no-transform {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  border-radius: 24px;
+  overflow: hidden;
 }
+
 
         }
       `}</style>
