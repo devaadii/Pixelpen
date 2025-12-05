@@ -54,6 +54,13 @@
     isolation: isolate; /* optional safeguard */
     height: 57vh;
   }
+  .package-card:hover {
+  transform: scale(1.03); /* 5% scale up - adjust as needed (1.03-1.08 works well) */
+  box-shadow: 0 20px 40px rgba(0, 92, 255, 0.3); /* glowing shadow for depth */
+  z-index: 3; /* ensures it stays above other cards */
+}
+
+
   .package-title {
     font-size: 34px;
     margin-bottom: 20px;
