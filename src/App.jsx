@@ -28,7 +28,7 @@ function App() {
         <OurStory />
         <section id="portfolio">
  
-          <CustomCarousel/>
+<CustomCarousel />
         </section>
         <section id="case-study">
           <PackagesSection />

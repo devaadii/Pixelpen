@@ -153,44 +153,42 @@ export default function CustomCarousel() {
   {slides.map((slide, idx) => {
     // Determine rotation only for thumbnails
     let rotation = "0deg";
-    if (slide.orientation === "vertical" && !(isPlaying && idx === currentIndex)) {
-      const verticalIndex = slides
-        .slice(0, idx + 1)
-        .filter(s => s.orientation === "vertical").length;
-      rotation = verticalIndex <= 2 ? "3deg" : "-3deg";
-    }
+ 
 
     return (
-      <div
-        key={idx}
-        className={`mobile-video-item ${
-          slide.orientation === "vertical"
-            ? "mobile-vertical"
-            : "mobile-horizontal"
-        } ${isPlaying && idx === currentIndex ? "playing" : ""}`}
-        style={{ transform: `rotate(${rotation})`, transition: "transform 0.3s ease" }}
-      >
-        {isPlaying && idx === currentIndex ? (
-          <div className="video-wrapper-no-transform">
-            <div id={`yt-player-${idx}`} className="player-host" />
-            <button className="custom-carousel-close" onClick={stopVideo}>
-              ✕
-            </button>
-          </div>
-        ) : (
-          <div
-            className="custom-carousel-thumb-wrapper mobile-thumb"
-            onClick={() => handleThumbnailClick(idx)}
-          >
-            <img
-              src={`https://img.youtube.com/vi/${slide.videoSrc}/hqdefault.jpg`}
-              alt={`Video ${idx}`}
-              className="custom-carousel-video-thumb"
-            />
-            <div className="custom-carousel-play-button">▶</div>
-          </div>
-        )}
-      </div>
+   <div className="mobile-video-list">
+  {slides.map((slide, idx) => (
+    <div
+      key={idx}
+      className={`mobile-video-item ${
+        slide.orientation === "vertical"
+          ? "mobile-vertical"
+          : "mobile-horizontal"
+      } ${isPlaying && idx === currentIndex ? "playing" : ""}`}
+    >
+      {isPlaying && idx === currentIndex ? (
+        <div className="video-wrapper-no-transform">
+          <div id={`yt-player-${idx}`} className="player-host" />
+          <button className="custom-carousel-close" onClick={stopVideo}>
+            ✕
+          </button>
+        </div>
+      ) : (
+        <div
+          className="custom-carousel-thumb-wrapper mobile-thumb"
+          onClick={() => handleThumbnailClick(idx)}
+        >
+          <img
+            src={`https://img.youtube.com/vi/${slide.videoSrc}/hqdefault.jpg`}
+            alt={`Video ${idx}`}
+            className="custom-carousel-video-thumb"
+          />
+          <div className="custom-carousel-play-button">▶</div>
+        </div>
+      )}
+    </div>
+  ))}
+</div>
     );
   })}
 </div>
@@ -352,7 +350,7 @@ export default function CustomCarousel() {
             width: 70px;
             margin: 8px auto 0;
             position: static;
-            transform: translateX(35%) translateY(-5%);
+        
           }
 
           /* vertical stack container */
