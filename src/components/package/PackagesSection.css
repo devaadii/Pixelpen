@@ -53,6 +53,8 @@
     z-index: 2;
     isolation: isolate; /* optional safeguard */
     height: 57vh;
+    transition: transform 1s cubic-bezier(0.0, 0, 0.2, 1), 
+            box-shadow 1s cubic-bezier(0.0, 0, 0.2, 1);
   }
   .package-card:hover {
   transform: scale(1.03); /* 5% scale up - adjust as needed (1.03-1.08 works well) */

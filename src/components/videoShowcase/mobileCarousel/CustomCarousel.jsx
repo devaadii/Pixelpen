@@ -34,18 +34,18 @@ export default function CustomCarousel() {
           playerRef.current.destroy();
         } catch {}
       }
-
-    playerRef.current = new window.YT.Player(`yt-player-${currentIndex}`, {
+playerRef.current = new YT.Player(`yt-player-${currentIndex}`, {
   videoId: slides[currentIndex].videoSrc,
   width: "100%",
   height: "100%",
   playerVars: {
     autoplay: 1,
-    mute: 1,          // 🔹 MUST mute for autoplay on mobile
+    mute: 1,
+    playsinline: 1,    // ← ensure inline playback on iOS
     rel: 0,
     modestbranding: 1,
     controls: 0,
-    iv_load_policy: 3,
+    iv_load_policy: 3
   },
   events: {
     onReady: (event) => {
